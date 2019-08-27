@@ -11,3 +11,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  text-align: center;
+
+}
+
+h1, h4, h6 {
+  font-family: Gill Sans;
+}
