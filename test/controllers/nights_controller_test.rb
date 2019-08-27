@@ -5,5 +5,4 @@ class NightsControllerTest < ActionDispatch::IntegrationTest
     get nights_show_url
     assert_response :success
   end
-
 end
