@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'nights/show'
   devise_for :users
   root to: 'pages#home'
   resources :nights, only: [:new, :create]
