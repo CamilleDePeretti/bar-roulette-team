@@ -32,7 +32,20 @@ class MidpointHelper
   end
 
   # Distance between 2 geocoordinates
-  def self.distance(lat1, lng1, lat2, lng2)
+  def self.spherical_law(lat1, lng1, lat2, lng2)
     Math.acos(Math.sin(lat1) * Math.sin(lat2) + Math.cos(lat1) * Math.cos(lat2) * Math.cos(lng2 - lng1))
+  end
+
+  Point of minimum distance between N geocoordinates
+  def self.min_distnace(addresses)
+    current_point = geo_midpoint(addresses)
+
+    minimum_distance = 0
+
+    addresses.each do |address|
+      minimum_distance += spherical_law(address.lat, address.lng, current_point[0], current_point[1])
+    end
+
+    return "Don't use this yet"
   end
 end
