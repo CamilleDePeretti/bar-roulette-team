@@ -1,4 +1,6 @@
 class NightsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:new, :create, :show]
+
   def new
     @night = Night.new
     @address = Address.new
@@ -19,7 +21,7 @@ class NightsController < ApplicationController
 
   def show
     @night = Night.find(params[:id])
-    @nights = [[52.5200, 13.404954]]
+    @nights = [[@night.lat, @night.lng]]
     @markers = @nights.map do |night|
       {
         lat: night[0],
