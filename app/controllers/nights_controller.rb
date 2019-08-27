@@ -6,15 +6,20 @@ class NightsController < ApplicationController
 
   def create
     @night = Night.new
-    @night.save
     params[:addresses].each do |address|
       Address.create(address: address, night: @night)
     end
-    redirect_to new_night_path(@night)
+    @night.save
+    coords = MidpointHelper.geo_midpoint(@night.addresses)
+    @night.lat = coords[0]
+    @night.lng = coords[1]
+    @night.save
+    redirect_to night_path(@night)
   end
 
   def show
-    @nights = [[52.520008, 13.404954]]
+    @night = Night.find(params[:id])
+    @nights = [[52.5200, 13.404954]]
     @markers = @nights.map do |night|
       {
         lat: night[0],
