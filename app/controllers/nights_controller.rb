@@ -1,4 +1,6 @@
 class NightsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:new, :create, :show]
+
   def new
     @night = Night.new
     @address = Address.new
