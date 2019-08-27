@@ -1,10 +1,11 @@
 class NightsController < ApplicationController
   def show
-    @nights = [[52.520008, 13.404954]]
-    @markers = @nights.map do |night|
+    @midpoints = [[52.520008, 13.404954]]
+    @markers = @midpoints.map do |midpoint|
       {
-        lat: night[0],
-        lng: night[1]
+        lat: midpoint[0],
+        lng: midpoint[1]
+        # infoWindow: render_to_string(partial: "info_window", locals: { night: night})
       }
     end
   end
