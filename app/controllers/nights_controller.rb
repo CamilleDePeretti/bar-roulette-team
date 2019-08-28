@@ -39,8 +39,6 @@ class NightsController < ApplicationController
       infoWindow: render_to_string(partial: "info_window"),
       image_url: helpers.asset_url('midpoint-logo.png')
     }
-
-
   end
 
   private
@@ -54,7 +52,11 @@ class NightsController < ApplicationController
       lng = result['location']['lng'].to_s
       address = result['location']['formattedAddress'].join(', ')
       category = result['categories'].first['name'].to_s
-      Bar.create(name: name, lat: lat, lng: lng, address: address, category: category, night: night)
+      foursquare_id = result['id'].to_s
+      Bar.create(name: name, lat: lat, lng: lng, address: address, category: category, night: night, foursquare_id: foursquare_id)
+      photo_response = client.venue_photos(foursquare_id, :v => '20190827').to_hash
+      photo_hash = photo_response['items'].first
+      photo_url = photo_hash['prefix'] + '512x512' + photo_hash['suffix']
     end
   end
 end
