@@ -17,26 +17,40 @@ class NightsController < ApplicationController
     @night.lat = coords[0]
     @night.lng = coords[1]
     @night.save
+    create_bars(@night)
     redirect_to night_path(@night)
   end
 
   def show
     @night = Night.find(params[:id])
-    @nights = [[@night.lat, @night.lng]]
-    @markers = @nights.map do |night|
-      {
-        lat: night[0],
-        lng: night[1],
-        infoWindow: render_to_string(partial: "info_window", locals: { night: night}),
-        image_url: helpers.asset_url('logo.png')
-      }
-    # send the midpoint to foursquare
-    # create radius around midpoint
-    #retrieve 3 bars in the raidus
-    #iterate over the 3 bars to display info
+    @markers = @night.bars.map do |bar|
+    {
+      lat: bar.lat,
+      lng: bar.lng,
+      infoWindow: render_to_string(partial: "info_window", locals: { bar: bar }),
+      image_url: helpers.asset_url('bar-pin.png')
+    }
     end
-    client = Foursquare2::Client.new(:client_id => 'TRIBS0HCJFDS3USY5MQ2Z2GSIOTK5H1E312LKTQBZIKAMYTT', :client_secret => '5ZKYIOJVB4NM44DQNFJR2MVGN1CW1OIBXSE1KI0NEQVIIPVM')
-    @results = client.search_venues(:ll => "#{@night.lat}, #{@night.lng}", :radius => '250', :limit => '3', :categoryId => '4bf58dd8d48988d116941735', :v => '20190827')
+    @markers <<
+    {
+      lat: @night.lat, lng: @night.lng,
+      infoWindow: render_to_string(partial: "info_window"),
+      image_url: helpers.asset_url('logo.png')
+    }
+  end
 
+  private
+
+  def create_bars(night)
+    client = Foursquare2::Client.new(:client_id => 'TRIBS0HCJFDS3USY5MQ2Z2GSIOTK5H1E312LKTQBZIKAMYTT', :client_secret => ENV['FSECRET'])
+    @results = client.search_venues(:ll => "#{@night.lat}, #{@night.lng}", :radius => '250', :limit => '3', :categoryId => '4bf58dd8d48988d116941735,50327c8591d4c4b30a586d5d,4bf58dd8d48988d121941735', :v => '20190827')
+    @results.to_hash['venues'].each do |result|
+      name = result['name'].to_s
+      lat = result['location']['lat'].to_s
+      lng = result['location']['lng'].to_s
+      address = result['location']['formattedAddress'].join(', ')
+      category = result['categories'].first['name'].to_s
+      Bar.create(name: name, lat: lat, lng: lng, address: address, category: category, night: night)
+    end
   end
 end
