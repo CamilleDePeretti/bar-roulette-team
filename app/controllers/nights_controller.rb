@@ -10,9 +10,10 @@ class NightsController < ApplicationController
     @night = Night.new
     params[:addresses].each do |address|
       Address.create(address: address, night: @night)
+      sleep 1
     end
     @night.save
-    coords = MidpointHelper.geo_midpoint(@night.addresses)
+    coords = MidpointService.geo_midpoint(@night.addresses)
     @night.lat = coords[0]
     @night.lng = coords[1]
     @night.save

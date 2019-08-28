@@ -1,4 +1,4 @@
-class MidpointHelper
+class MidpointService
   def self.geo_midpoint(addresses)
     # X, Y, Z arrays for storing converted geolocations
     x = []
