@@ -7,8 +7,9 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
-<div class="social-share">
-  <%= render 'shared/socialshare' %>
+
+<div>
+  <%= render 'shared/clipboard-btn' %>
 </div>
 
 <% @night.bars.each do |bar| %>
@@ -19,4 +20,6 @@
   <%= bar.category %>
   <br>
   <br>
+
 <% end %>
+
