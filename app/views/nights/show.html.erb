@@ -8,32 +8,9 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
-
-  <a id="url" href="#">
-    Copy to clipboard
-  </a>
-
-<script>
-
-  btn = document.querySelector("#url");
-  btn.addEventListener("click", (event) => {
-    updateClipboard();
-  });
-  function updateClipboard() {
-  navigator.clipboard.writeText("<%= request.original_url %>").then(function() {
-    console.log("successful")
-    btn.insertAdjacentHTML("afterend", "<%= flash[:alert] = 'Link copied to clipboard' %>");
-     alert("Link copied to clipboard");
-  }, function() {
-    console.log("failed");
-  });
-}
-</script>
-
-
-
-<% @results.each do |result| %>
-    <%= result[1] %>
+<div>
+  <%= render 'shared/clipboard-btn' %>
+</div>
 
 <% @night.bars.each do |bar| %>
   <strong><%= bar.name %></strong>
