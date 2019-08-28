@@ -24,10 +24,12 @@ class NightsController < ApplicationController
   def show
     @night = Night.find(params[:id])
     @markers = @night.bars.map do |bar|
+      @bar_name = bar.name
+      @bar_address = bar.address
     {
       lat: bar.lat,
       lng: bar.lng,
-      infoWindow: render_to_string(partial: "info_window", locals: { bar: bar }),
+      infoWindow: render_to_string(partial: "info_window", locals: { bar: bar}),
       image_url: helpers.asset_url('beer-pin.png')
     }
     end
@@ -37,6 +39,8 @@ class NightsController < ApplicationController
       infoWindow: render_to_string(partial: "info_window"),
       image_url: helpers.asset_url('midpoint-logo.png')
     }
+
+
   end
 
   private
