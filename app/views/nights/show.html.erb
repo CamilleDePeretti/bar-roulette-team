@@ -1,10 +1,5 @@
 <h4>Let the magic begin...</h4>
 
-<div>
-  <%= @night.lat %>
-  <%= @night.lng %>
-</div>
-
 <div
   id="map"
   style="width: 100%;
@@ -16,9 +11,12 @@
   <%= render 'shared/socialshare' %>
 </div>
 
-<% @results.each do |result| %>
-    <%= result[1] %>
-
-
-
+<% @night.bars.each do |bar| %>
+  <strong><%= bar.name %></strong>
+  <br>
+  <%= bar.address %>
+  <br>
+  <%= bar.category %>
+  <br>
+  <br>
 <% end %>
