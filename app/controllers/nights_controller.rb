@@ -27,21 +27,21 @@ class NightsController < ApplicationController
       lat: bar.lat,
       lng: bar.lng,
       infoWindow: render_to_string(partial: "info_window", locals: { bar: bar }),
-      image_url: helpers.asset_url('bar-pin.png')
+      image_url: helpers.asset_url('beer-pin.png')
     }
     end
     @markers <<
     {
       lat: @night.lat, lng: @night.lng,
       infoWindow: render_to_string(partial: "info_window"),
-      image_url: helpers.asset_url('logo.png')
+      image_url: helpers.asset_url('midpoint-logo.png')
     }
   end
 
   private
 
   def create_bars(night)
-    client = Foursquare2::Client.new(:client_id => 'TRIBS0HCJFDS3USY5MQ2Z2GSIOTK5H1E312LKTQBZIKAMYTT', :client_secret => ENV['FSECRET'])
+    client = Foursquare2::Client.new(:client_id => 'TRIBS0HCJFDS3USY5MQ2Z2GSIOTK5H1E312LKTQBZIKAMYTT', :client_secret => ENV['FOURSQUARE_SECRET_KEY'])
     @results = client.search_venues(:ll => "#{@night.lat}, #{@night.lng}", :radius => '250', :limit => '3', :categoryId => '4bf58dd8d48988d116941735,50327c8591d4c4b30a586d5d,4bf58dd8d48988d121941735', :v => '20190827')
     @results.to_hash['venues'].each do |result|
       name = result['name'].to_s
