@@ -26,8 +26,10 @@
   function updateClipboard() {
   navigator.clipboard.writeText("<%= request.original_url %>").then(function() {
     console.log("successful")
+    btn.insertAdjacentHTML("afterend", "<%= flash[:alert] = 'Link copied to clipboard' %>");
+     alert("Link copied to clipboard");
   }, function() {
-    console.log("failed")
+    console.log("failed");
   });
 }
 </script>
