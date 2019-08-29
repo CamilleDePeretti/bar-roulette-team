@@ -13,7 +13,9 @@
     <script src="https://unpkg.com/tippy.js@4"></script>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+    <% unless action_name == "new" %>
+       <%= render 'shared/navbar' %>
+    <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
