@@ -15,6 +15,12 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'geocoder'
+gem 'social-share-button', '~> 0.1.6'
+gem 'foursquare2'
+gem 'oauth2'
+gem 'hashie'
+gem 'bootstrap'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
