@@ -26,18 +26,18 @@ class NightsController < ApplicationController
     @markers = @night.bars[0..2].map do |bar|
       @bar_name = bar.name
       @bar_address = bar.address
-    {
-      lat: bar.lat,
-      lng: bar.lng,
-      infoWindow: render_to_string(partial: "info_window", locals: { bar: bar}),
-      image_url: helpers.asset_url('beer-pin.png')
-    }
+      {
+        lat: bar.lat,
+        lng: bar.lng,
+        infoWindow: render_to_string(partial: "info_window", locals: { bar: bar }),
+        image_url: helpers.asset_url('beer-pin.png')
+      }
     end
     @markers <<
-    {
-      lat: @night.lat, lng: @night.lng,
-      infoWindow: render_to_string(partial: "info_window"),
-      image_url: helpers.asset_url('midpoint-logo.png')
-    }
+      {
+        lat: @night.lat, lng: @night.lng,
+        infoWindow: render_to_string(partial: "info_window"),
+        image_url: helpers.asset_url('midpoint-logo.png')
+      }
   end
 end
