@@ -1,1 +1,31 @@
 // Specific CSS for your home-page
+body {
+  text-align: center;
+  background-color: $body-color;
+}
+
+h1 {
+  font-family: Plaza;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+h6 {
+  font-family: Gill Sans;
+  padding-bottom: 35px;
+}
+
+.input-field {
+  border-radius: 3px;
+}
+
+.primary-btn {
+  border-radius: 3px;
+  background-color: $accent-color;
+  color: $main-color;
+
+  &:hover {
+    background-color: $sub-color;
+    opacity: 0.7;
+  }
+}

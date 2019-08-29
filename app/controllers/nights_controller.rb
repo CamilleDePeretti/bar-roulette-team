@@ -8,7 +8,7 @@ class NightsController < ApplicationController
 
   def create
     @night = Night.new
-    params[:addresses].each do |address|
+    params[:addresses].select(&:present?).each do |address|
       Address.create(address: address, night: @night)
       sleep 1
     end
