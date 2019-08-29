@@ -1,4 +1,4 @@
-<h4>Let the magic begin...</h4>
+<h5>3 bars chosen specially for you:</h5>
 
 <div
   id="map"
@@ -8,18 +8,20 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
-<% @night.bars.each do |bar| %>
-  <strong><%= bar.name %></strong>
-  <br>
-  <%= bar.address %>
-  <br>
-  <i><%= bar.category %></i>
-  <br>
-  <br>
-
-<% end %>
+<div class="row mt-1">
+  <% @night.bars[0..2].each do |bar| %>
+    <div class="col-12 mt-1">
+      <%= render 'bar-mini-card', bar: bar %>
+    </div>
+  <% end %>
+</div>
 
 <div>
   <%= render 'shared/clipboard-btn' %>
   <%= render 'shared/social-btn' %>
 </div>
+
+
+<button class='spin-btn btn-primary'>
+<%link_to "Re-spin the wheel", night_path %>Re-spin the wheel</button>
+
