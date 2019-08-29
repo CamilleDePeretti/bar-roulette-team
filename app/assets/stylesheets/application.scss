@@ -1,8 +1,8 @@
 // Colors
-$body-color: $white;
-$main-color: $#5433FF;
-$sub-color: $#24D9F1;
-$accent-color: $#FF22A4;
+$body-color: white;
+$main-color: #5433FF;
+$sub-color: #24D9F1;
+$accent-color: #FF22A4;
 
 // Graphical variables
 @import "config/fonts";
@@ -19,11 +19,4 @@ $accent-color: $#FF22A4;
 @import "pages/index";
 @import "components/share-btns";
 
-// body {
-//   text-align: center;
 
-// }
-
-// h1, h4, h6 {
-//   font-family: Gill Sans;
-// }

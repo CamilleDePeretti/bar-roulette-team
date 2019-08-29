@@ -1,7 +1,7 @@
 <form action="/nights" method="post">
 <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-<input name="addresses[]" type="text" value="<%= @address.address %>"/>
-<input name="addresses[]" type="text" value="<%= @address.address %>"/>
-<input type="submit">
+<input name="addresses[]" type="text" value="<%= @address.address %>"  class="input-field"/>
+<input name="addresses[]" type="text" value="<%= @address.address %>"  class="input-field"/>
+<input type="submit" class="primary-btn">
 </form>
 
