@@ -12,8 +12,8 @@
 </div>
 
 <div id="giphy-container" style="display: none">
-  <iframe src="https://giphy.com/embed/Nd2hAfzpUhzJVrAnPN" width="480" height="560" frameBorder="0" class="giphy-embed" allowFullScreen>
-
-  </iframe><p><a href="https://giphy.com/gifs/julesm-julesmumm-psycheledic-Nd2hAfzpUhzJVrAnPN">via GIPHY</a></p>
-
+  <% gifs = ["giphy-waffle.gif", "giphy-coke.gif", "giphy-cat.gif", "giphy-man.gif" ] %>
+    <% gif = gifs.sample %>
+  <%= image_tag "#{gif}", alt: "drink", style: "width: 100vw; object-fit: " %>
+  <p class=text-center> <%= "Choosing 3 perfect bars for you..." %></p>
 </div>
