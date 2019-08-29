@@ -1,5 +1,15 @@
-/*
- *= require_tree .
- *= require social-share-button
- *= require_self
- */
+#share-fb img {
+  width: 56px;
+}
+
+#share-email img {
+  width: 26px;
+}
+
+#share-wp img {
+  width: 56px;
+}
+
+.share-social {
+text-decoration: none;
+}
