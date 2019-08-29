@@ -37,7 +37,7 @@ class MidpointService
   end
 
   # Point of minimum distance between N geocoordinates
-  def self.min_distnace(addresses)
+  def self.min_distance(addresses)
     current_point = geo_midpoint(addresses)
 
     minimum_distance = 0
