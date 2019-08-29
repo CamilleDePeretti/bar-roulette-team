@@ -4,7 +4,9 @@ import tippy from 'tippy.js'
 import { initAlgolia } from '../plugins/init_algolia';
 import { initMapbox } from '../plugins/init_mapbox';
 import { dynamicForm } from '../components/address_form';
+import { initGiphy } from '../components/wheel_spinning';
 
 initMapbox();
 initAlgolia();
 dynamicForm();
+initGiphy();
