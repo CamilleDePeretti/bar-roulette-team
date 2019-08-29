@@ -8,7 +8,7 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
-<% @night.bars.each do |bar| %>
+<% @night.bars[0..2].each do |bar| %>
   <strong><%= bar.name %></strong>
   <br>
   <%= bar.address %>
