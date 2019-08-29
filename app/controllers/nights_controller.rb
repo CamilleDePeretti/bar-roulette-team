@@ -17,21 +17,21 @@ class NightsController < ApplicationController
     @night.lat = coords[0]
     @night.lng = coords[1]
     @night.save
-    create_bars(@night)
+    BarCreationService.create_bars(@night)
     redirect_to night_path(@night)
   end
 
   def show
     @night = Night.find(params[:id])
-    @markers = @night.bars.map do |bar|
+    @markers = @night.bars[0..2].map do |bar|
       @bar_name = bar.name
       @bar_address = bar.address
-    {
-      lat: bar.lat,
-      lng: bar.lng,
-      infoWindow: render_to_string(partial: "info_window", locals: { bar: bar}),
-      image_url: helpers.asset_url('beer-pin.png')
-    }
+      {
+        lat: bar.lat,
+        lng: bar.lng,
+        infoWindow: render_to_string(partial: "info_window", locals: { bar: bar }),
+        image_url: helpers.asset_url('beer-pin.png')
+      }
     end
     @markers <<
     {
@@ -54,9 +54,16 @@ class NightsController < ApplicationController
       category = result['categories'].first['name'].to_s
       foursquare_id = result['id'].to_s
       Bar.create(name: name, lat: lat, lng: lng, address: address, category: category, night: night, foursquare_id: foursquare_id)
-      # photo_response = client.venue_photos(foursquare_id, :v => '20190827').to_hash
-      # photo_hash = photo_response['items'].first
-      # photo_url = photo_hash['prefix'] + '512x512' + photo_hash['suffix']
+      photo_response = client.venue_photos(foursquare_id, :v => '20190827').to_hash
+      photo_hash = photo_response['items'].first
+      photo_url = photo_hash['prefix'] + '512x512' + photo_hash['suffix']
     end
+
+      {
+        lat: @night.lat, lng: @night.lng,
+        infoWindow: render_to_string(partial: "info_window"),
+        image_url: helpers.asset_url('midpoint-logo.png')
+      }
+
   end
 end
