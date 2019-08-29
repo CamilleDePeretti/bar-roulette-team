@@ -34,10 +34,10 @@ class NightsController < ApplicationController
       }
     end
     @markers <<
-      {
-        lat: @night.lat, lng: @night.lng,
-        infoWindow: render_to_string(partial: "info_window"),
-        image_url: helpers.asset_url('midpoint-logo.png')
-      }
+    {
+      lat: @night.lat, lng: @night.lng,
+      infoWindow: render_to_string(partial: "info_window"),
+      image_url: helpers.asset_url('midpoint-logo.png')
+    }
   end
 end
