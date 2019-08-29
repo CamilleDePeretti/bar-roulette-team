@@ -1,4 +1,15 @@
+// Colors
+$body-color: white;
+$main-color: #030F4B;
+$sub-color: #24D9F1;
+$accent-color: #FF22A4;
+$sec-color: #EBA623;
+
 // Import your components CSS files here.
 @import "alert";
 @import "avatar";
 @import "navbar";
+@import "map";
+@import "share-btns";
+@import "spin-btn";
+@import "landing";

@@ -1,0 +1,17 @@
+<div class="share-social">
+
+
+
+  <a href="http://www.facebook.com/sharer.php?u=<%= request.original_url %>" id="share-fb" target="_blank">
+    <%= image_tag "facebook-icon.png", alt: "facebook" %>
+  </a>
+
+  <a href="https://wa.me/whatsappphonenumber/?text=<%= request.original_url %>" target="_blank" id="share-wp">
+      <%= image_tag "whatsapp-icon.png", alt: "whatsapp" %>
+  </a>
+
+  <a href="mailto:?subject=Here are 3 choices of bar for tonight! &amp;body=Which one do you prefer? <%= request.original_url %>" target="_blank" id="share-email">
+    <%= image_tag "mail-icon.png", alt: "mail" %>
+  </a>
+
+</div>

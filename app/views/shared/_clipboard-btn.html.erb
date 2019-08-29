@@ -1,0 +1,28 @@
+
+<div>
+  <button id="url" type='button' class="btn3 btn-info" >Share the link</button>
+</div>
+
+<script>
+
+  cb_btn = document.querySelector("#url");
+  cb_btn.addEventListener("click", (event) => {
+    updateClipboard();
+  });
+  function updateClipboard() {
+  navigator.clipboard.writeText("<%= request.original_url %>").then(function() {
+    console.log("successful")
+  }, function() {
+    console.log("failed");
+  });
+}
+
+
+tippy('#url', {
+  arrow: true,
+  trigger: 'click', // or 'focus'
+  content: 'Url copied to clipboard',
+})
+
+
+</script>
