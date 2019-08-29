@@ -1,13 +1,23 @@
-<div class="row justify-content-center" id="home-container">
-  <div class="col-8">
-    <h1>BAR ROULETTE</h1>
-    <p class="py-0 my-0">find a bar quick and fair</p>
-    <p>for your night out with friends</p>
-
-    <div>
-    <%= render 'form' %>
+<div class="landing-background">
+  <div class="row pt-5">
+    <div class="col-12 pt-5">
+      <img class="w-100 px-5 py-3" src="https://res.cloudinary.com/du4r5hykw/image/upload/v1567092388/main_logo.png">
     </div>
+    <div class="col-12 text-center">
+      <h5 class="moto font-weight-bold my-0">find a bar quick and fair </h5>
+      <h5 class="moto font-weight-bold">for your night out with friends</h5>
+    </div>
+  </div>
 
+  <div class="row mt-5">
+    <div class="search-form col-12 mx-3 px-5">
+      <%= render 'form' %>
+    </div>
+  </div>
+  <div class="row">
+    <div id="beer-gif" class="col-12">
+      <img src="https://res.cloudinary.com/du4r5hykw/image/upload/v1567094035/beer_gif.gif" alt="">
+    </div>
   </div>
 </div>
 
