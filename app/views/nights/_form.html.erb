@@ -1,13 +1,10 @@
 <form action="/nights" method="post">
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
- <div id="address-form">
+  <div id="address-form">
     <input name="addresses[]" type="text" class="address-input" value="" placeholder="Type address here" />
-   <input name="addresses[]" type="text" class="address-input" value="" placeholder="Type address here" />
- </div>
+    <input name="addresses[]" type="text" class="address-input" value="" placeholder="Type address here" />
+  </div>
   <input type="submit" id="address-form-submit">
+
 </form>
 <a href="#" id="add-address-btn" class="btn btn-primary">Add</a> <a href="#" id="remove-address-btn" class="btn btn-danger">Remove</a>
-
-<script>
-
-</script>

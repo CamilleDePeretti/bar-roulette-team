@@ -8,17 +8,18 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
-<div>
-  <%= render 'shared/clipboard-btn' %>
-</div>
-
 <% @night.bars.each do |bar| %>
   <strong><%= bar.name %></strong>
   <br>
   <%= bar.address %>
   <br>
-  <%= bar.category %>
+  <i><%= bar.category %></i>
   <br>
   <br>
 
 <% end %>
+
+<div>
+  <%= render 'shared/clipboard-btn' %>
+  <%= render 'shared/social-btn' %>
+</div>
