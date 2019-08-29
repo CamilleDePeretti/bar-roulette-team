@@ -1,15 +1,17 @@
 <div class="share-social">
 
-  <a href="http://www.facebook.com/sharer.php?u=<%= request.original_url %>" id="share-fb" target="_blank">
-    <img src="https://1.bp.blogspot.com/-Oycat4R9GuE/XHguPKA2ABI/AAAAAAAAIHU/6FiEpQI0oLQkRjqhXh_gITbSwLFFldwLACK4BGAYYCw/s1600/icon%2Bshare%2Bfacebook.png"  alt="Facebook" />
-  </a>
 
-  <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site <%= request.original_url %>" target="_blank" id="share-email">
-    <img src="http://png-2.findicons.com/files/icons/573/must_have/48/mail.png"  alt="email" />
+
+  <a href="http://www.facebook.com/sharer.php?u=<%= request.original_url %>" id="share-fb" target="_blank">
+    <%= image_tag "facebook-icon.png", alt: "facebook" %>
   </a>
 
   <a href="https://wa.me/whatsappphonenumber/?text=<%= request.original_url %>" target="_blank" id="share-wp">
-      <img src="https://i1.wp.com/multarte.com.br/wp-content/uploads/2018/10/logo-whatsapp-png-transparente4.png?w=500&ssl=1"  alt="email" />
+      <%= image_tag "whatsapp-icon.png", alt: "whatsapp" %>
+  </a>
+
+  <a href="mailto:?subject=Here are 3 choices of bar for tonight! &amp;body=Which one do you prefer? <%= request.original_url %>" target="_blank" id="share-email">
+    <%= image_tag "mail-icon.png", alt: "mail" %>
   </a>
 
 </div>
