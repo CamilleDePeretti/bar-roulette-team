@@ -9,6 +9,7 @@
 ></div>
 
 <% @night.bars[0..2].each do |bar| %>
+  <%= image_tag bar.photo? %>
   <strong><%= bar.name %></strong>
   <br>
   <%= bar.address %>
