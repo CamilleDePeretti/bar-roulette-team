@@ -8,17 +8,13 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
-<% @night.bars[0..2].each do |bar| %>
-  <%= image_tag bar.photo? %>
-  <strong><%= bar.name %></strong>
-  <br>
-  <%= bar.address %>
-  <br>
-  <i><%= bar.category %></i>
-  <br>
-  <br>
-
-<% end %>
+<div class="row mt-1">
+  <% @night.bars[0..2].each do |bar| %>
+    <div class="col-12 mt-1">
+      <%= render 'bar-mini-card', bar: bar %>
+    </div>
+  <% end %>
+</div>
 
 <div>
   <%= render 'shared/clipboard-btn' %>
