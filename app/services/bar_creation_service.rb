@@ -54,7 +54,7 @@ class BarCreationService
       return ""
     end
 
-    if photo_response.any?
+    if photo_response['items'].any?
       photo_hash = photo_response['items'].first
       return photo_hash['prefix'] + '512x512' + photo_hash['suffix']
     end
