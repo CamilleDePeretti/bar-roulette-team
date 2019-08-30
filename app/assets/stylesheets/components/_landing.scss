@@ -1,14 +1,15 @@
 .landing-background {
-  background: $main-color;
+  background: linear-gradient($main-color, #65053E);
+  /* background: linear-gradient($main-color, #FF53EE);*/
+  /* background: linear-gradient($main-color 50%, #316966);*/
+  /* background: linear-gradient($main-color 40%, #65053E);*/
+  /* background: linear-gradient($main-color 40%, #477875);*/
 }
 
 .moto {
   color: $sec-color;
-}
+  font-family: "Lato";
 
-#land-bg {
-    min-height: 100%;
-    height: 100%;
 }
 
 #main-logo {
@@ -23,8 +24,44 @@
 }
 
 #beer-gif img {
-  width: 381px;
-  height: 268.99px;
-  left: -4px;
-  top: 554px;
+  width: 375px;
+  height: 260px;
+}
+
+#address-form-submit {
+  background-color: $sec-color !important;
+  font-weight: bold !important;
+  color: $main-color;
+  padding: 10px;
+  width: 97%;
+  line-height: normal;
+  border-radius: 3px;
+}
+
+#address-form {
+  padding-right: 10px;
+}
+
+
+#add-address-btn {
+    width: 30px !important;
+    height: 30px !important;
+    padding: 3px 0px;
+/*  border-radius: 35px;*/
+    text-align: center !important;
+    font-size: 12px !important;
+    line-height: 1.8 !important;
+    color: $main-color;
+}
+
+#remove-address-btn {
+    width: 30px !important;
+    height: 30px !important;
+    padding: 3px 0px;
+/*  border-radius: 35px; */
+    text-align: center !important;
+    font-size: 12px !important;
+    line-height: 1.8 !important;
+    color: $main-color;
+/*  background: $accent-color !important; */
 }
