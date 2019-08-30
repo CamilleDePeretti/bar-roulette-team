@@ -11,20 +11,22 @@
 
 <h5 class="text-center font-weight-bold">The Bar Roulette chose 3 bars for you!</h5>
 
-<div class="row w-100">
+<div id="mini-card-geral" class="row w-100">
   <% @night.bars[0..2].each do |bar| %>
-    <div class="col-12 mt-1">
+    <div id="mini-card-geral" class="col-12 mt-1">
       <%= render 'bar-mini-card', bar: bar %>
     </div>
   <% end %>
 </div>
-  <div>
-    <%= render 'shared/clipboard-btn' %>
-    <%= render 'shared/social-btn' %>
+  <div class="d-flex justify-content-center pr-2">
+    <button class='spin-btn btn-primary'>
+    <%link_to "Re-spin the wheel", night_path %>Show more</button>
   </div>
-
-
-  <button class='spin-btn btn-primary'>
-  <%link_to "Re-spin the wheel", night_path %>Re-spin the wheel</button>
-
+  <div class="social-btns d-flex justify-content-center">
+  <%= render 'shared/social-btn' %>
+  <%= render 'shared/clipboard-btn' %>
+  </div>
 </div>
+
+
+

@@ -1,7 +1,22 @@
 .show-background {
-background: linear-gradient($accent-color, $main-color);
+background: linear-gradient($accent-color 60%, $main-color);
 }
 
 .show-background h5 {
   color: $sub-color;
+}
+
+.btn .btn3 {
+  width: 30px !important;
+  height: 30px !important;
+  padding: 2px 0px !important;
+  background-color: $sub-color;
+}
+
+.spin-btn {
+  margin: 12px;
+  width: 300px !important;
+  height: 35px !important;
+  background-color: $sec-color !important;
+  border: 5px !important;
 }
