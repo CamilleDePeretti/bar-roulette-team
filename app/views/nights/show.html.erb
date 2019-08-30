@@ -9,7 +9,7 @@
 <h5 class="text-center">The Bar Roulette chose 3 bars for you!</h5>
 
 <div class="row w-100">
-  <% @night.bars[0..2].each do |bar| %>
+  <% @bars.each do |bar| %>
     <div class="col-12 mt-1">
       <%= render 'bar-mini-card', bar: bar %>
     </div>
@@ -22,6 +22,12 @@
 </div>
 
 
-<button class='spin-btn btn-primary'>
-<%link_to "Re-spin the wheel", night_path %>Re-spin the wheel</button>
+<% if @night.bars.length == 6 %>
+  <% wheel_text = "Show more" if @night.page == 1 %>
+  <% wheel_text = "Show previous bars" if @night.page == 2 %>
+
+  <%= link_to wheel_text, night_update_path(@night), method: :patch, class: 'btn btn-primary' %>
+<% end %>
+
+
 
