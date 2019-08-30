@@ -12,27 +12,22 @@
 <h5 class="text-center font-weight-bold">The Bar Roulette chose 3 bars for you!</h5>
 
 
-<div class="row w-100">
+<div class="row w-100 pl-4">
   <% @bars.each do |bar| %>
-    <div class="col-12 mt-1">
+    <div class="col-12 mt-2">
       <%= render 'bar-mini-card', bar: bar %>
     </div>
   <% end %>
 </div>
+  <div class="d-flex justify-content-center mt-2 mb-2">
+  <%= render 'show-more-btn', night: @night %>
+  </div>
   <div class="social-btns d-flex justify-content-center">
   <%= render 'shared/social-btn' %>
   <%= render 'shared/clipboard-btn' %>
   </div>
 </div>
 
-
-
-<% if @night.bars.length == 6 %>
-  <% wheel_text = "Show more" if @night.page == 1 %>
-  <% wheel_text = "Show previous bars" if @night.page == 2 %>
-
-  <%= link_to wheel_text, night_update_path(@night), method: :patch, class: 'btn btn-primary' %>
-<% end %>
 
 
 
