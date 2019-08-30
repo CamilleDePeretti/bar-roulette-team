@@ -17,11 +17,15 @@ class BarCreationService
       category = result['categories'].first['name'].to_s
       foursquare_id = result['id'].to_s
       photo = photo_get(foursquare_id)
+      hours = hours_get(foursquare_id)
+      open = hours['start']
+      close = hours['end']
 
       puts "Creating bar #{name}. Address: #{address}"
       Bar.create!(
         name: name, lat: lat, lng: lng, address: address, category: category,
-        night: night, foursquare_id: foursquare_id, photo: photo
+        night: night, foursquare_id: foursquare_id, photo: photo, open: open,
+        close: close
       )
     end
   end
@@ -55,7 +59,7 @@ class BarCreationService
     begin
       photo_response = client.venue_photos(foursquare_id, :v => '20190827').to_hash
     rescue Foursquare2::APIError
-      puts "API Quota exceeded... returning empty string"
+      puts "API Quota exceeded... (Photo request)"
       return ""
     end
 
@@ -64,7 +68,7 @@ class BarCreationService
       return photo_hash['prefix'] + '512x512' + photo_hash['suffix']
     end
 
-    return ""
+    ""
   end
 
   def self.print_results(results)
@@ -74,5 +78,18 @@ class BarCreationService
       address = result['location']['formattedAddress'].join(', ')
       puts "Bar: #{name} Address: #{address}"
     end
+  end
+
+  def self.hours_get(foursquare_id)
+    begin
+      hours_response = client.venue_hours(foursquare_id, :v => '20190827').to_hash
+    rescue Foursquare2::APIError
+      puts "API Quota exceeded... (Hours request)"
+      return ""
+    end
+
+    return hours_response['hours']['timeframes'][0]['open'][0] if hours_response['hours'].any?
+
+    ""
   end
 end
