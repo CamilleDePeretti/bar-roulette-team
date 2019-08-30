@@ -10,6 +10,7 @@ class NightsController < ApplicationController
     @night = Night.new
     params[:addresses].select(&:present?).each do |address|
       Address.create(address: address, night: @night)
+      # redirect_to(errorpage_path) if Address.last.nil?
       sleep 1
     end
     @night.save

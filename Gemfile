@@ -21,6 +21,7 @@ gem 'foursquare2'
 gem 'oauth2'
 gem 'hashie'
 gem 'bootstrap'
+gem 'exception_handler', '~> 0.8.0.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
