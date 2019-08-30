@@ -76,10 +76,6 @@ GEM
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
     erubi (1.8.0)
-    exception_handler (0.8.0.0)
-      bundler
-      rails (>= 4.2.0)
-      responders
     execjs (2.7.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
@@ -237,7 +233,6 @@ DEPENDENCIES
   bootstrap
   devise
   dotenv-rails
-  exception_handler (~> 0.8.0.0)
   font-awesome-sass (~> 5.6.1)
   foursquare2
   geocoder

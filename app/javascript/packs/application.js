@@ -10,3 +10,4 @@ initMapbox();
 initAlgolia();
 dynamicForm();
 initGiphy();
+
