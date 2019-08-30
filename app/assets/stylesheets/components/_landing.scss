@@ -1,0 +1,67 @@
+.landing-background {
+  background: linear-gradient($main-color, #65053E);
+  /* background: linear-gradient($main-color, #FF53EE);*/
+  /* background: linear-gradient($main-color 50%, #316966);*/
+  /* background: linear-gradient($main-color 40%, #65053E);*/
+  /* background: linear-gradient($main-color 40%, #477875);*/
+}
+
+.moto {
+  color: $sec-color;
+  font-family: "Lato";
+
+}
+
+#main-logo {
+  display: flex;
+  width: 100%;
+}
+
+#main-logo img {
+  margin-top: 50px;
+  height: 50px;
+  vertical-align: middle;
+}
+
+#beer-gif img {
+  width: 375px;
+  height: 260px;
+}
+
+#address-form-submit {
+  background-color: $sec-color !important;
+  font-weight: bold !important;
+  color: $main-color;
+  padding: 10px;
+  width: 97%;
+  line-height: normal;
+  border-radius: 3px;
+}
+
+#address-form {
+  padding-right: 10px;
+}
+
+
+#add-address-btn {
+    width: 30px !important;
+    height: 30px !important;
+    padding: 3px 0px;
+/*  border-radius: 35px;*/
+    text-align: center !important;
+    font-size: 12px !important;
+    line-height: 1.8 !important;
+    color: $main-color;
+}
+
+#remove-address-btn {
+    width: 30px !important;
+    height: 30px !important;
+    padding: 3px 0px;
+/*  border-radius: 35px; */
+    text-align: center !important;
+    font-size: 12px !important;
+    line-height: 1.8 !important;
+    color: $main-color;
+/*  background: $accent-color !important; */
+}

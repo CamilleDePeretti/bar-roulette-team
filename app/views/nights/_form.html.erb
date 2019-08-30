@@ -1,7 +1,13 @@
 <form action="/nights" method="post">
-<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-<input name="addresses[]" type="text" value="<%= @address.address %>"/>
-<input name="addresses[]" type="text" value="<%= @address.address %>"/>
-<input type="submit">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+  <div id="address-form">
+    <input name="addresses[]" type="text" class="address-input mb-2" value="" placeholder="Your address" />
+    <input name="addresses[]" type="text" class="address-input mb-2" value="" placeholder="Friend's address (optional)" />
+  </div>
+  <a href="#" id="remove-address-btn" class="btn btn-circle btn-danger mb-5 mr-2 ml-3 float-right"><i class="fas fa-minus"></i></a> <a href="#" id="add-address-btn" class="btn btn-circle btn-info mb-5 float-right"><i class="fas fa-plus"></i></a>
+      <br>
+    <input type="submit" id="address-form-submit" class= "mt-3" value="SPIN THE WHEEL">
 </form>
+
+
 

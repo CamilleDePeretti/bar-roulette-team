@@ -1,0 +1,21 @@
+<div class="d-flex bar-mini-card">
+  <%= image_tag bar.photo?, class: 'bar-mini-card-img mr-2' %>
+  <div>
+    <p class="m-0"><%= bar.name %></p>
+    <p class="m-0"><%= bar.address %></p>
+    <p class="m-0"><%= bar.category %></p>
+  </div>
+</div>
+
+
+<style>
+  .bar-mini-card-img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+  }
+
+  .bar-mini-card {
+    background: rgba(0, 0, 0, 0.03);
+  }
+</style>
