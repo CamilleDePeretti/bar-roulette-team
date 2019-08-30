@@ -1,5 +1,5 @@
 class NightsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :create, :show]
+  skip_before_action :authenticate_user!, only: [:new, :create, :show, :update]
 
   def new
     @night = Night.new
@@ -24,7 +24,10 @@ class NightsController < ApplicationController
 
   def show
     @night = Night.find(params[:id])
-    @markers = @night.bars[0..2].map do |bar|
+    amnt = @night.page * 3
+    page_size = 3
+    @bars = @night.bars[amnt - page_size..amnt - 1]
+    @markers = @bars.map do |bar|
       @bar_name = bar.name
       @bar_address = bar.address
       {
@@ -40,5 +43,16 @@ class NightsController < ApplicationController
       infoWindow: render_to_string(partial: "info_window"),
       image_url: helpers.asset_url('midpoint-logo.png')
     }
+  end
+
+  def update
+    @night = Night.find(params[:id])
+
+    if @night.page == 1
+      @night.page +=1
+    else
+      @night.page -= 1
+    end
+    redirect_to night_path(@night) if @night.save!
   end
 end
