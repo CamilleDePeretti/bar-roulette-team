@@ -1,10 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #EBA623;
+  background: $main-color;
 }
 
 #nav-logo {
-  width: 65px;
+  width: 80px;
 }
 
 
@@ -14,4 +14,8 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-toggler-icon {
+  color: $sec-color;
 }
