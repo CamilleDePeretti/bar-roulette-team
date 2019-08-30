@@ -8,7 +8,6 @@ const initGiphy = () => {
   wheelBtn.addEventListener("click", (event) => {
     homeContainer.style.display = "none";
     giphyContainer.style.display = "block";
-    wheelBtn.click();
   });
 };
 

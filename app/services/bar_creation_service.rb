@@ -33,13 +33,18 @@ class BarCreationService
   end
 
   def self.bars_get(night, amnt, radius, increment)
-    puts "Looking for #{amnt} bars in a #{radius}m radius"
+    puts "Looking for #{amnt} bars in a #{(radius/1_000.0).round(2)}km radius"
     results = client.search_venues(:ll => "#{night.lat}, #{night.lng}", :radius => radius, :limit => amnt, :categoryId => '4bf58dd8d48988d116941735,50327c8591d4c4b30a586d5d,4bf58dd8d48988d121941735', :v => '20190827').to_hash
     print_results(results)
 
+    return results if radius > 100_000
+    multiplier = 1.2
+    multiplier = 1.5 if radius >= 1_500
+    multiplier = 3 if radius >= 20_000
+
     if results['venues'].length < amnt
       sleep 0.5 # Maximum 2 QPS, so sleeping just to make sure
-      return bars_get(night, amnt, radius + increment, increment)
+      return bars_get(night, amnt, radius + increment, increment * multiplier)
     end
 
     puts "#{results['venues'].length}"
