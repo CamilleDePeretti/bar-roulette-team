@@ -1,21 +1,33 @@
 <div class="d-flex bar-mini-card">
   <%= image_tag bar.photo?, class: 'bar-mini-card-img mr-2' %>
   <div>
-    <p class="m-0"><%= bar.name %></p>
-    <p class="m-0"><%= bar.address %></p>
+    <p class="m-0 bar-name"><%= bar.name %></p>
     <p class="m-0"><%= bar.category %></p>
+    <% if bar.open? && bar.close? %>
+    <p class="m-0">🕙 <%= bar.open? %> - <%= bar.close? %></p>
+    <% end %>
+    <p class="m-0">📍<%= bar.address %></p>
   </div>
 </div>
 
 
 <style>
   .bar-mini-card-img {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
   }
 
   .bar-mini-card {
     background: $sec-color;
+  }
+
+  .bar-mini-card .bar-name {
+      font-size: 20px;
+      font-weight: bold;
+  }
+
+  .bar-mini-card p {
+    font-size: 14px;
   }
 </style>

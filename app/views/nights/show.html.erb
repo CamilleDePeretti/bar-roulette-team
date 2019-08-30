@@ -8,16 +8,16 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
 
-  <h5 class ="col-10"><strong>The Bar Roulette chosed 3 bars for you!</strong></h5>
 
-  <div class="row mt-1">
-    <% @night.bars[0..2].each do |bar| %>
-      <div class="col-12 mt-1">
-        <%= render 'bar-mini-card', bar: bar %>
-      </div>
-    <% end %>
-  </div>
+<h5 class="text-center font-weight-bold">The Bar Roulette chose 3 bars for you!</h5>
 
+<div class="row w-100">
+  <% @night.bars[0..2].each do |bar| %>
+    <div class="col-12 mt-1">
+      <%= render 'bar-mini-card', bar: bar %>
+    </div>
+  <% end %>
+</div>
   <div>
     <%= render 'shared/clipboard-btn' %>
     <%= render 'shared/social-btn' %>

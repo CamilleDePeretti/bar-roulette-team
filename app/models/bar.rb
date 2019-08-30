@@ -11,4 +11,16 @@ class Bar < ApplicationRecord
 
     photo
   end
+
+  def open?
+    return false if open.nil? || close.nil? || open.blank? || close.blank?
+
+    BarHoursService.format(open)
+  end
+
+  def close?
+    return false if open.nil? || close.nil? || open.blank? || close.blank?
+
+    BarHoursService.format(close)
+  end
 end
