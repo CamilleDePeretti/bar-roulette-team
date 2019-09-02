@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_02_153201) do
+ActiveRecord::Schema.define(version: 2019_09_02_161927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_09_02_153201) do
     t.text "hours"
     t.string "photos", array: true
     t.text "internal_details"
+    t.text "contact"
     t.index ["night_id"], name: "index_bars_on_night_id"
   end
 

@@ -21,9 +21,16 @@ class Bar < ApplicationRecord
   end
 
   def hours?
-    return false if hours.nil? || hours.nil? || hours.blank? || hours.blank?
+    return false if hours.nil? || hours.empty? || hours.blank?
 
     true
+  end
+
+  def phone?
+    contact_hash = eval(contact)
+    return false if contact_hash['formattedPhone'].nil? || contact_hash['formattedPhone'].empty? || contact_hash['formattedPhone'].blank?
+
+    contact_hash['formattedPhone']
   end
 
   private

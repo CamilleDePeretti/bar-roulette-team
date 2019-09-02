@@ -51,7 +51,8 @@ class FoursquareService
   end
 
   def self.contact_get(foursquare_id)
-    client.venue(foursquare_id, :v => '20190827').to_hash
+    response = client.venue(foursquare_id, :v => '20190827').to_hash
+    response['contact']
   end
 
   private

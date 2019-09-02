@@ -24,6 +24,9 @@
 
 
 <h2><%= bar.name %></h2>
+<% if bar.phone? %>
+  <p><%= bar.phone? %></p>
+<% end %>
 <p><%= bar.category %></p>
 <p><%= bar.address %></p>
 <p><%= link_to "Google Maps", GoogleMapsService.gmaps_link(bar) %></p>
@@ -31,10 +34,12 @@
 
 <p><%= link_to "Share", '#' %></p>
 
-<p>Monday: <%= bar.open_hours(1) %> - <%= bar.close_hours(1) %></p>
-<p>Tuesday: <%= bar.open_hours(2) %> - <%= bar.close_hours(2) %></p>
-<p>Wednesday: <%= bar.open_hours(3) %> - <%= bar.close_hours(3) %></p>
-<p>Thursday: <%= bar.open_hours(4) %> - <%= bar.close_hours(4) %></p>
-<p>Friday: <%= bar.open_hours(5) %> - <%= bar.close_hours(5) %></p>
-<p>Saturday: <%= bar.open_hours(6) %> - <%= bar.close_hours(6) %></p>
-<p>Sunday: <%= bar.open_hours(7) %> - <%= bar.close_hours(7) %></p>
+<% if bar.hours? %>
+  <p>Monday: <%= bar.open_hours(1) %> - <%= bar.close_hours(1) %></p>
+  <p>Tuesday: <%= bar.open_hours(2) %> - <%= bar.close_hours(2) %></p>
+  <p>Wednesday: <%= bar.open_hours(3) %> - <%= bar.close_hours(3) %></p>
+  <p>Thursday: <%= bar.open_hours(4) %> - <%= bar.close_hours(4) %></p>
+  <p>Friday: <%= bar.open_hours(5) %> - <%= bar.close_hours(5) %></p>
+  <p>Saturday: <%= bar.open_hours(6) %> - <%= bar.close_hours(6) %></p>
+  <p>Sunday: <%= bar.open_hours(7) %> - <%= bar.close_hours(7) %></p>
+<% end %>
