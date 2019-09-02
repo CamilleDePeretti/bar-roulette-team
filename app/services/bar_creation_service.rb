@@ -1,13 +1,14 @@
 class BarCreationService
   def self.create_bars(night)
+    Hashie.logger = Logger.new('/dev/null') # Fix Hashie bug warning
+
     bar_amnt = 6
     search_radius = 250
     increment = 100
 
     results = bars_get(night, bar_amnt, search_radius, increment)
 
-    puts "Finishing getting the bars, now to create them"
-    puts "#{results['venues'].length}"
+    puts "Finishing getting the #{results['venues'].length} bars, now to create them"
 
     results['venues'].each do |result|
       name = result['name'].to_s

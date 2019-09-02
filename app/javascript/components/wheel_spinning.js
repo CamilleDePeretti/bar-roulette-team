@@ -5,10 +5,12 @@ const initGiphy = () => {
   const giphyContainer = document.getElementById("giphy-container");
 
 
-  wheelBtn.addEventListener("click", (event) => {
-    homeContainer.style.display = "none";
-    giphyContainer.style.display = "block";
-  });
+  if (wheelBtn) {
+    wheelBtn.addEventListener("click", (event) => {
+      homeContainer.style.display = "none";
+      giphyContainer.style.display = "block";
+    });
+  }
 };
 
 export { initGiphy };
