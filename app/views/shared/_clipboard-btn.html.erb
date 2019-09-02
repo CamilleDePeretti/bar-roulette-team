@@ -7,22 +7,34 @@
 
   cb_btn = document.querySelector("#url-btn");
   cb_btn.addEventListener("click", (event) => {
-    updateClipboard();
+    shareLink();
   });
-  function updateClipboard() {
-  navigator.clipboard.writeText("<%= request.original_url %>").then(function() {
-    console.log("successful")
-  }, function() {
-    console.log("failed");
-  });
+
+function shareLink() {
+  if (navigator.share) {
+  navigator.share({
+      title: 'Bar Roulette',
+      text: 'Here are 3 choices of bar for tonight!',
+      url: '<%= request.original_url %>',
+  })
+    .then(() => console.log('Successful share'))
+    .catch((error) => console.log('Error sharing', error));
 }
+}
+ // function updateClipboard() {
+//  navigator.clipboard.writeText("<%= request.original_url %>").then(function() {
+//    console.log("successful")
+//  }, function() {
+//    console.log("failed");
+//  });
+//}
 
 
-tippy('#url-btn', {
-  arrow: true,
-  trigger: 'click', // or 'focus'
-  content: 'Url copied to clipboard',
-})
+//tippy('#url-btn', {
+//  arrow: true,
+//  trigger: 'click', // or 'focus'
+//  content: 'Url copied to clipboard',
+//})
 
 
 </script>
