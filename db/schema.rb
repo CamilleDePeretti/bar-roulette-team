@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_02_104546) do
+ActiveRecord::Schema.define(version: 2019_09_02_153201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,10 +39,11 @@ ActiveRecord::Schema.define(version: 2019_09_02_104546) do
     t.string "category"
     t.bigint "night_id"
     t.string "foursquare_id"
-    t.string "photo"
     t.string "open"
     t.string "close"
     t.text "hours"
+    t.string "photos", array: true
+    t.text "internal_details"
     t.index ["night_id"], name: "index_bars_on_night_id"
   end
 

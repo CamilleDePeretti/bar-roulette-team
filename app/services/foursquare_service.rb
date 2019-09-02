@@ -18,7 +18,7 @@ class FoursquareService
     results
   end
 
-  def self.photo_get(foursquare_id)
+  def self.photos_get(foursquare_id)
     begin
       photo_response = client.venue_photos(foursquare_id, :v => '20190827').to_hash
     rescue Foursquare2::APIError
@@ -27,8 +27,11 @@ class FoursquareService
     end
 
     if photo_response['items'].any?
-      photo_hash = photo_response['items'].first
-      return photo_hash['prefix'] + '512x512' + photo_hash['suffix']
+      photos = photo_response['items'].map do |photo|
+        photo['prefix'] + '512x512' + photo['suffix']
+      end
+
+      return photos
     end
 
     ""
@@ -45,6 +48,10 @@ class FoursquareService
     return hours_response['hours'] if hours_response['hours'].any?
 
     ""
+  end
+
+  def self.contact_get(foursquare_id)
+    client.venue(foursquare_id, :v => '20190827').to_hash
   end
 
   private
