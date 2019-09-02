@@ -16,4 +16,18 @@
     <%= image_tag "mail-icon.png", alt: "mail" %>
   </a>
 
+
+  <script>
+    if (navigator.share) {
+  navigator.share({
+      title: 'Bar Roulette',
+      text: 'Here are 3 choices of bar for tonight!',
+      url: '<%= request.original_url %>',
+  })
+    .then(() => console.log('Successful share'))
+    .catch((error) => console.log('Error sharing', error));
+}
+
+  </script>
+
 </div>
