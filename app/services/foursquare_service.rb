@@ -42,7 +42,7 @@ class FoursquareService
       return ""
     end
 
-    return hours_response['hours']['timeframes'][0]['open'][0] if hours_response['hours'].any?
+    return hours_response['hours'] if hours_response['hours'].any?
 
     ""
   end
@@ -51,5 +51,14 @@ class FoursquareService
 
   def self.client
     Foursquare2::Client.new(:client_id => ENV['FOURSQUARE_PUBLIC_KEY'], :client_secret => ENV['FOURSQUARE_SECRET_KEY'])
+  end
+
+  def self.print_results(results)
+    puts "#{results['venues'].length} bars found"
+    results['venues'].each do |result|
+      name = result['name'].to_s
+      address = result['location']['formattedAddress'].join(', ')
+      puts "Bar: #{name} Address: #{address}"
+    end
   end
 end

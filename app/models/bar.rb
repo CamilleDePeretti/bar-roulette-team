@@ -12,15 +12,27 @@ class Bar < ApplicationRecord
     photo
   end
 
-  def open?
-    return false if open.nil? || close.nil? || open.blank? || close.blank?
-
-    BarHoursService.format(open)
+  def open_hours(day)
+    BarHoursService.format(all_hours(day).first['start'])
   end
 
-  def close?
-    return false if open.nil? || close.nil? || open.blank? || close.blank?
+  def close_hours(day)
+    BarHoursService.format(all_hours(day).first['end'])
+  end
 
-    BarHoursService.format(close)
+  def hours?
+    return false if hours.nil? || hours.nil? || hours.blank? || hours.blank?
+
+    true
+  end
+
+  private
+
+  def all_hours(day)
+    hours_hash = eval(hours)
+
+    hours_hash['timeframes'].each do |hash|
+      return hash['open'] if hash['days'].include?(day)
+    end
   end
 end

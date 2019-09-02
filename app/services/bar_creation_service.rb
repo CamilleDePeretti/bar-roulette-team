@@ -19,26 +19,12 @@ class BarCreationService
       foursquare_id = result['id'].to_s
       photo = FoursquareService.photo_get(foursquare_id)
       hours = FoursquareService.hours_get(foursquare_id)
-      open = hours['start']
-      close = hours['end']
 
       puts "Creating bar #{name}. Address: #{address}"
       Bar.create!(
         name: name, lat: lat, lng: lng, address: address, category: category,
-        night: night, foursquare_id: foursquare_id, photo: photo, open: open,
-        close: close
+        night: night, foursquare_id: foursquare_id, photo: photo, hours: hours
       )
-    end
-  end
-
-  private
-
-  def self.print_results(results)
-    puts "#{results['venues'].length} bars found"
-    results['venues'].each do |result|
-      name = result['name'].to_s
-      address = result['location']['formattedAddress'].join(', ')
-      puts "Bar: #{name} Address: #{address}"
     end
   end
 end
