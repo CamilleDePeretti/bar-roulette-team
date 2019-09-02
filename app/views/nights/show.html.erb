@@ -1,27 +1,33 @@
-<div
+<div class="show-background">
+
+  <div
   id="map"
   style="width: 100%;
   height: 300px;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+  ></div>
 
-<h5 class="text-center">The Bar Roulette chose 3 bars for you!</h5>
 
-<div class="row w-100">
-  <% @night.bars[0..2].each do |bar| %>
-    <div class="col-12 mt-1">
+<h5 class="text-center font-weight-bold">The Bar Roulette chose 3 bars for you!</h5>
+
+
+<div class="row w-100 pl-4">
+  <% @bars.each do |bar| %>
+    <div class="col-12 mt-2">
       <%= render 'bar-mini-card', bar: bar %>
     </div>
   <% end %>
 </div>
-
-<div>
-  <%= render 'shared/clipboard-btn' %>
+  <div class="d-flex justify-content-center mt-2 mb-2">
+  <%= render 'show-more-btn', night: @night %>
+  </div>
+  <div class="social-btns d-flex justify-content-center">
   <%= render 'shared/social-btn' %>
+  <%= render 'shared/clipboard-btn' %>
+  </div>
 </div>
 
 
-<button class='spin-btn btn-primary'>
-<%link_to "Re-spin the wheel", night_path %>Re-spin the wheel</button>
+
 

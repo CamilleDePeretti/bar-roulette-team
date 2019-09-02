@@ -1,11 +1,11 @@
 
 <div>
-  <button id="url" type='button' class="btn3 btn-info" >Share the link</button>
+  <button id="url-btn" type='button' class="btn btn3 btn-info" >Share the link</button>
 </div>
 
 <script>
 
-  cb_btn = document.querySelector("#url");
+  cb_btn = document.querySelector("#url-btn");
   cb_btn.addEventListener("click", (event) => {
     updateClipboard();
   });
@@ -18,7 +18,7 @@
 }
 
 
-tippy('#url', {
+tippy('#url-btn', {
   arrow: true,
   trigger: 'click', // or 'focus'
   content: 'Url copied to clipboard',

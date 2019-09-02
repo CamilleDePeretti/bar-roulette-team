@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "/", class: "navbar-brand" do %>
-    <%= image_tag "https://res.cloudinary.com/du4r5hykw/image/upload/v1567006194/Bar_Roulette_LG_sm_o6tehg.png", id: 'nav-logo' %>
+    <%= image_tag "https://res.cloudinary.com/du4r5hykw/image/upload/v1567092388/main_logo.png", id: 'nav-logo' %>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,9 +13,6 @@
       <% if user_signed_in? %>
         <li class="nav-item active">
           <%= link_to "Home", "#", class: "nav-link text-white" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link text-white" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://res.cloudinary.com/du4r5hykw/image/upload/v1567007268/349759f343b679df7acda12eb5104c68_w39mek.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
