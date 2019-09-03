@@ -31,9 +31,6 @@
 <p><%= bar.address %></p>
 <p><%= link_to "Google Maps", GoogleMapsService.gmaps_link(bar) %></p>
 
-
-<p><%= link_to "Share", '#' %></p>
-
 <% if bar.hours? %>
   <% weekdays = %w(Monday Tuesday Wednesday Thursday Friday Saturday Sunday) %>
 
@@ -46,3 +43,7 @@
     <% end %>
   <% end %>
 <% end %>
+
+<div class="mb-3">
+  <%= render 'shared/clipboard-btn' %>
+</div>
