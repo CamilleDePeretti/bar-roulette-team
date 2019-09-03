@@ -1,7 +1,7 @@
 <div class="d-flex bar-mini-card">
   <%= image_tag bar.photo?, class: 'bar-mini-card-img mr-2' %>
   <div>
-    <p class="m-0 bar-name"><%= link_to bar.name, bar_path(bar) %></p>
+    <p class="m-0 bar-name"><%= link_to bar.name, '#', class: "bar-#{bar.id}" %></p>
     <p class="m-0"><%= bar.category %></p>
     <% if bar.hours? %>
     <p class="m-0">🕙
@@ -14,4 +14,3 @@
     <p class="m-0">📍<%= bar.address %></p>
   </div>
 </div>
-
