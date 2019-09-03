@@ -5,7 +5,7 @@
       <img class="w-100 px-5 py-2 mb-3" src="https://res.cloudinary.com/du4r5hykw/image/upload/v1567092388/main_logo.png">
     </div>
     <div class="col-12 text-center">
-      <h5 class="moto font-weight-bold mb-0">find a bar quick and fair</h5>
+      <h5 class="moto font-weight-bold mb-0">find a bar right in the middle</h5>
       <h5 class="moto font-weight-bold my-1">for your night out with friends</h5>
     </div>
   </div>
@@ -24,10 +24,26 @@
   </div>
 </div>
 
-<div id="giphy-container" style="display: none">
-  <% gifs = ["giphy-waffle.gif", "giphy-coke.gif", "giphy-cat.gif", "giphy-man.gif" ] %>
-    <% gif = gifs.sample %>
-  <%= image_tag "#{gif}", alt: "drink", style: "width: 100vw; object-fit: " %>
-  <p class=text-center> <%= "Choosing 3 perfect bars for you..." %></p>
+<div id="gif-container" style="width: 100vw; position: relative; display: none">
+  <% gifs = ["waffle.gif", "cat.gif", "drink-man.gif", "wow.gif", "donut.gif", "pancakes.gif", "sweet.gif", "cookie.gif", "hot-dog.gif"] %>
+  <% gif = "gifs/"+gifs.sample %>
+  <%= image_tag "#{gif}", alt: "drink", style: "width: 100vw; height: 100vh; object-fit: cover;" %>
+<!--   <div class="gif-text">
+    <p>3 bars</p>
+    <p>
+      <span class="word wisteria">in the middle</span>
+      <span class="word belize">for your night out</span>
+      <span class="word green">with your friends</span>
+    </p>
+  </div> -->
+
+    <div class="dad-goo" contenteditable="true">
+      <span class="goo">Picking 3 bars</span>
+      <br> <br>
+      <span class="goo">right in the middle</span>
+      <br><br>
+      <span class="goo">with your friends</span></div>
+
+
+
 </div>
- <!-- this ndeeds to  work -->
