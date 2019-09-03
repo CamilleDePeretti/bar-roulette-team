@@ -1,31 +1,30 @@
 <div id="main-bar-show">
   <div class="show-background">
+    <h5 class="text-center font-weight-bold mb-1">
+    3 BARS FOR YOU IN <%= @cities.upcase %> !</h5>
 
     <div
     id="map"
     style="width: 100%;
-    height: 300px;"
+    height: 300px;
+    margin-bottom: 5px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
 
-
-    <h5 class="text-center font-weight-bold">The Bar Roulette chose 3 bars for you!</h5>
-
-
-    <div class="row w-100 pl-4">
+    <div class="row mx-auto pl-1 pr-1">
       <% @bars.each do |bar| %>
         <div class="col-12 mt-2">
-          <%= render 'bar-mini-card', bar: bar %>
+          <%= render 'bar-mini-card', bar: bar, address: @night.addresses.first %>
         </div>
       <% end %>
     </div>
 
-    <div class="d-flex justify-content-center mt-2 mb-2 width-100">
+    <div class="d-flex justify-content-center my-2 mx-2">
       <%= render 'shared/clipboard-btn' %>
     </div>
 
-    <div class="d-flex justify-content-center mt-2">
+    <div class="d-flex justify-content-center mx-2 mt-2">
       <%= render 'respin-btn', night: @night %>
     </div>
 
