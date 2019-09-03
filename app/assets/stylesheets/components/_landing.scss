@@ -6,10 +6,29 @@
   /* background: linear-gradient($main-color 40%, #477875);*/
 }
 
+.giphy-container {
+  background: linear-gradient($main-color, #65053E);
+  /* background: linear-gradient($main-color, #FF53EE);*/
+  /* background: linear-gradient($main-color 50%, #316966);*/
+  /* background: linear-gradient($main-color 40%, #65053E);*/
+  /* background: linear-gradient($main-color 40%, #477875);*/
+}
+
 .moto {
   color: $sec-color;
   font-family: "Lato";
   font-size: 20px;
+}
+
+#main-logo {
+  display: flex;
+  width: 100%;
+}
+
+#main-logo img {
+  margin-top: 50px;
+  height: 50px;
+  vertical-align: middle;
 }
 
 #address-form-submit {
@@ -24,24 +43,24 @@
 }
 
 #add-address-btn {
-    width: 30px !important;
-    height: 30px !important;
+    width: 35px !important;
+    height: 35px !important;
     padding: 3px 0px;
 /*  border-radius: 35px;*/
     text-align: center !important;
     font-size: 12px !important;
-    line-height: 1.8 !important;
+    line-height: 2 !important;
     color: $main-color;
 }
 
 #remove-address-btn {
-    width: 30px !important;
-    height: 30px !important;
+    width: 35px !important;
+    height: 35px !important;
     padding: 3px 0px;
 /*  border-radius: 35px; */
     text-align: center !important;
     font-size: 12px !important;
-    line-height: 1.8 !important;
+    line-height: 2 !important;
     color: $main-color;
 /*  background: $accent-color !important; */
 }
@@ -51,8 +70,3 @@
   margin: auto;
   font-size: 20px;
 }
-
-
-
-
-

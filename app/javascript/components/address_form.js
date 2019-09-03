@@ -20,10 +20,8 @@ const generateCode = (amnt) => {
       value.push("");
   }
 
-  // console.log(value);
-
   for (let i = 0; i < amnt; i++) {
-    let placeholder = "Friend's address (optional)";
+    let placeholder = "Friend`s address (optional)";
     if (i == 0) placeholder = 'Your address';
     code += `<input name='addresses[]' type='text' class='address-input mb-2' value ='${value[i]}' placeholder='${placeholder}'/>`;
   }
