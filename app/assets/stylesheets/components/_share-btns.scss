@@ -13,3 +13,43 @@
 .share-social {
 text-decoration: none;
 }
+
+
+
+
+.share-btn {
+  background-color: $sub-color !important;
+  font-weight: bold !important;
+  color: $main-color;
+  padding: 10px;
+  width: 97%;
+  line-height: normal;
+  border-radius: 3px;
+  text-align: center;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.share-btn p {
+  display:flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.share-btn img {
+  height: 29px;
+  margin-left: 17px;
+}
+
+.width-100 {
+  width: 100%;
+  #url-btn{
+    width: 97%;
+  }
+}
+
+#respin-btn {
+
+  }
+
