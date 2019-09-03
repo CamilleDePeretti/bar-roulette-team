@@ -1,37 +1,60 @@
+<div id="main-bar-show">
+  <div class="show-background">
+
+    <div
+    id="map"
+    style="width: 100%;
+    height: 300px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
+
+
+    <h5 class="text-center font-weight-bold">The Bar Roulette chose 3 bars for you!</h5>
+
+
+    <div class="row w-100 pl-4">
+      <% @bars.each do |bar| %>
+        <div class="col-12 mt-2">
+          <%= render 'bar-mini-card', bar: bar %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="d-flex justify-content-center mt-2 mb-2 width-100">
+      <%= render 'shared/clipboard-btn' %>
+    </div>
+
+    <div class="d-flex justify-content-center mt-2">
+      <%= render 'respin-btn', night: @night %>
+    </div>
+
+  </div>
+</div>
+
 <div class="show-background">
-
-  <div
-  id="map"
-  style="width: 100%;
-  height: 300px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
-
-
-<h5 class="text-center font-weight-bold">The Bar Roulette chose 3 bars for you!</h5>
-
-
-<div class="row w-100 pl-4">
   <% @bars.each do |bar| %>
-    <div class="col-12 mt-2">
-      <%= render 'bar-mini-card', bar: bar %>
+    <div id="bar-<%= bar.id %>">
+      <a id="back-<%= bar.id %>" href='#'>← Back</a>
+      <%= render 'shared/bar-show', bar: bar %>
     </div>
   <% end %>
 </div>
 
-<!--   <div class="social-btns d-flex justify-content-center"> -->
-<!--   <#%= render 'shared/social-btn' %> -->
-<!--   </div> -->
-  <div class="d-flex justify-content-center mt-2 mb-2 width-100">
-    <%= render 'shared/clipboard-btn' %>
-  </div>
+<% @bars.each do |bar| %>
+<script>
+  document.querySelector('.bar-<%= bar.id %>').addEventListener('click', (event) => {
+    // event.preventDefault();
+    console.log('clicked <%= bar.name %>');
+    document.querySelector('#main-bar-show').style.display = 'none';
+    document.querySelector('#bar-<%= bar.id %>').removeAttribute('style');
+  });
 
-  <div class="d-flex justify-content-center mt-2">
-    <%= render 'respin-btn', night: @night %>
-  </div>
-</div>
-
-
+  document.querySelector('#back-<%= bar.id %>').addEventListener('click', (event) => {
+    document.querySelector('#bar-<%= bar.id %>').style.display = 'none';
+    document.querySelector('#main-bar-show').removeAttribute('style');
+  });
+</script>
+<% end %>
 
 
