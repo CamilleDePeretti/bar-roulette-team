@@ -1,5 +1,4 @@
-
-
+<% if bar.photos.length > 0 %>
 <div class="glide">
   <div data-glide-el="track" class="glide__track">
     <ul class="glide__slides">
@@ -20,6 +19,7 @@
     <button class="glide__arrow glide__arrow--right" data-glide-dir=">">></button>
   </div>
 </div>
+<% end %>
 
 
 
@@ -31,15 +31,19 @@
 <p><%= bar.address %></p>
 <p><%= link_to "Google Maps", GoogleMapsService.gmaps_link(bar) %></p>
 
-
-<p><%= link_to "Share", '#' %></p>
-
 <% if bar.hours? %>
-  <p>Monday: <%= bar.open_hours(1) %> - <%= bar.close_hours(1) %></p>
-  <p>Tuesday: <%= bar.open_hours(2) %> - <%= bar.close_hours(2) %></p>
-  <p>Wednesday: <%= bar.open_hours(3) %> - <%= bar.close_hours(3) %></p>
-  <p>Thursday: <%= bar.open_hours(4) %> - <%= bar.close_hours(4) %></p>
-  <p>Friday: <%= bar.open_hours(5) %> - <%= bar.close_hours(5) %></p>
-  <p>Saturday: <%= bar.open_hours(6) %> - <%= bar.close_hours(6) %></p>
-  <p>Sunday: <%= bar.open_hours(7) %> - <%= bar.close_hours(7) %></p>
+  <% weekdays = %w(Monday Tuesday Wednesday Thursday Friday Saturday Sunday) %>
+
+  <% weekdays.each_with_index do |weekday, index| %>
+    <p><%= weekday %>:
+    <% if bar.all_hours(index) %>
+      <%= bar.open_hours(index) %> - <%= bar.close_hours(index) %>
+    <% else %>
+      closed</p>
+    <% end %>
+  <% end %>
 <% end %>
+
+<div class="mb-3">
+  <%= render 'shared/clipboard-btn' %>
+</div>
