@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_09_02_161927) do
     t.string "close"
     t.text "hours"
     t.string "photos", array: true
+    t.text "internal_details"
     t.text "contact"
     t.index ["night_id"], name: "index_bars_on_night_id"
   end
