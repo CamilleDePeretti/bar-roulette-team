@@ -25,7 +25,6 @@ class NightsController < ApplicationController
   def show
     @night = Night.find(params[:id])
     @cities = cities_get(@night)
-    raise
     amnt = @night.page * 3
     page_size = 3
     @bars = @night.bars[amnt - page_size..amnt - 1]
