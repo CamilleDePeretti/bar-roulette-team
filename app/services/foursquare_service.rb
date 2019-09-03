@@ -50,7 +50,17 @@ class FoursquareService
     ""
   end
 
-  def self.contact_get(foursquare_id)
+  def self.details_get(foursquare_id)
+    begin
+      response = client.venue(foursquare_id, :v => '20190827').to_hash
+    rescue Foursquare2::APIError
+      puts "API Quota exceeded... (Details request)"
+      return ""
+    end
+    response
+  end
+
+  def self.contact_get(foursquare_id) # DEPRECATED
     begin
       response = client.venue(foursquare_id, :v => '20190827').to_hash
     rescue Foursquare2::APIError

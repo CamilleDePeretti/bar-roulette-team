@@ -28,9 +28,22 @@ class Bar < ApplicationRecord
 
   def phone?
     contact_hash = eval(contact)
+    return false if contact_hash.nil?
     return false if contact_hash['formattedPhone'].nil? || contact_hash['formattedPhone'].empty? || contact_hash['formattedPhone'].blank?
 
     contact_hash['formattedPhone']
+  end
+
+  def price?
+    return false if details.nil? || eval(details)['price'].nil?
+
+    eval(details)['price']['tier']
+  end
+
+  def currency?
+    return false if details.nil? || eval(details)['price'].nil?
+
+    eval(details)['price']['currency']
   end
 
   def all_hours(day)
