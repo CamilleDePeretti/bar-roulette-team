@@ -27,9 +27,9 @@ class Bar < ApplicationRecord
   end
 
   def phone?
+    return false if contact.nil?
     contact_hash = eval(contact)
-    return false if contact_hash.nil?
-    return false if contact_hash['formattedPhone'].nil? || contact_hash['formattedPhone'].empty? || contact_hash['formattedPhone'].blank?
+    return false if contact_hash.nil? || contact_hash['formattedPhone'].nil? || contact_hash['formattedPhone'].empty? || contact_hash['formattedPhone'].blank?
 
     contact_hash['formattedPhone']
   end
