@@ -1,5 +1,5 @@
 const textMoving = () => {
-  var words = document.getElementsByClassName('word');
+  var words = document.querySelectorAll('.word');
   var wordArray = [];
   var currentWord = 0;
 

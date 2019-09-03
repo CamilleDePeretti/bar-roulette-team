@@ -24,15 +24,17 @@
   </div>
 </div>
 
-<div id="giphy-container" style="display: none">
+<div id="gif-container" style="display: none">
   <% gifs = ["waffle.gif", "coke.gif", "cat.gif", "drink-man.gif", "drink-wine.gif", "wow.gif", "lama-yeah.gif", "beer-buddies.gif", "chicken.gif", "donut.gif", "pancakes.gif", "sweet.gif", "cookie.gif"] %>
   <% gif = "gifs/"+gifs.sample %>
   <%= image_tag "#{gif}", alt: "drink", style: "width: 100vw; object-fit: " %>
-  <!-- <p class=text-center> <%#= "Choosing 3 perfect bars for you..." %></p> -->
-  <div class="text-center">
-    <p class="text-center">3 bars in the middle</p>
-      <!-- <span class="word wisteria text-center"></span>
-      <span class="word belize text-center">for your night out</span>
-      <span class="word green text-center">with your friends</span> -->
+  <div class="text">
+    <p>3 bars</p>
+    <p>
+      <span class="word wisteria">in the middle</span>
+      <span class="word belize">for your night out</span>
+      <span class="word green">with your friends</span>
+    </p>
   </div>
+  <!-- <p class=text-center> <%#= "Choosing 3 perfect bars for you..." %></p> -->
 </div>
