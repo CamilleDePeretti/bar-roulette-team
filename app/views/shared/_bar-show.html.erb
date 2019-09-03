@@ -1,5 +1,5 @@
 <% if bar.photos.length > 0 %>
-<div class="glide">
+<div class="glide-div-<%= bar.id %>">
   <div data-glide-el="track" class="glide__track">
     <ul class="glide__slides">
       <% bar.photos.each do |photo| %>
@@ -8,7 +8,7 @@
     </ul>
   </div>
 
-  <div class="glide__bullets" data-glide-el="controls[nav]">
+  <div class="glide__bullets" data-glide-el="controls[nav]" style="display:none;">
     <% bar.photos.each_with_index do |_photo, index| %>
       <button class="glide__bullet" data-glide-dir="=<%= index %>"></button>
     <% end %>
@@ -20,7 +20,6 @@
   </div>
 </div>
 <% end %>
-
 
 
 <h2><%= bar.name %></h2>
