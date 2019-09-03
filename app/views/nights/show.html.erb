@@ -34,7 +34,7 @@
 <div class="show-background">
   <% @bars.each do |bar| %>
     <div id="bar-<%= bar.id %>">
-      <a id="back-<%= bar.id %>" href='#'>← Back</a>
+      <a id="back-<%= bar.id %>" class="back-btn" href='#'>X</a>
       <%= render 'shared/bar-show', bar: bar %>
     </div>
   <% end %>
