@@ -1,5 +1,8 @@
 <div id="main-bar-show">
   <div class="show-background">
+    <h5 class="text-center font-weight-bold">BAR ROULETTE CHOSE
+      <br>
+    3 BARS FOR YOU!</h5>
 
     <div
     id="map"
@@ -9,11 +12,7 @@
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
 
-
-    <h5 class="text-center font-weight-bold">The Bar Roulette chose 3 bars for you!</h5>
-
-
-    <div class="row w-100 pl-4">
+    <div class="row pl-2 pr-2">
       <% @bars.each do |bar| %>
         <div class="col-12 mt-2">
           <%= render 'bar-mini-card', bar: bar %>

@@ -20,3 +20,11 @@ background: linear-gradient($main-color, #65053E);
   background-color: $sec-color !important;
   border: 5px !important;
 }
+
+#main-bar-show h5 {
+  color: $sec-color;
+  font-family: "Lato";
+  font-size: 18px;
+  background-color: $main-color;
+  margin-bottom: 5px;
+}

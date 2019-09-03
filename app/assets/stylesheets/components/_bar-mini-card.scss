@@ -3,6 +3,7 @@
     height: 100px;
     object-fit: cover;
     border-radius: 5px 0px 0px 5px;
+    padding: 3px;
   }
 
   .bar-mini-card {
@@ -16,10 +17,6 @@
   .bar-mini-card .bar-name {
     font-size: 20px;
     font-weight: bold;
-  }
-
-  #mini-card-geral {
-    background: $sec-color;
   }
 
   .bar-mini-card p {
