@@ -7,20 +7,39 @@ class Bar < ApplicationRecord
   def photo?
     placeholder_url = "https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80"
 
-    return placeholder_url if photo.nil? || photo.blank?
+    return placeholder_url if photos.nil? || photos.blank?
 
-    photo
+    photos.first
   end
 
-  def open?
-    return false if open.nil? || close.nil? || open.blank? || close.blank?
-
-    BarHoursService.format(open)
+  def open_hours(day)
+    BarHoursService.format(all_hours(day).first['start'])
   end
 
-  def close?
-    return false if open.nil? || close.nil? || open.blank? || close.blank?
+  def close_hours(day)
+    BarHoursService.format(all_hours(day).first['end'])
+  end
 
-    BarHoursService.format(close)
+  def hours?
+    return false if hours.nil? || hours.empty? || hours.blank?
+
+    true
+  end
+
+  def phone?
+    contact_hash = eval(contact)
+    return false if contact_hash['formattedPhone'].nil? || contact_hash['formattedPhone'].empty? || contact_hash['formattedPhone'].blank?
+
+    contact_hash['formattedPhone']
+  end
+
+  def all_hours(day)
+    hours_hash = eval(hours)
+
+    hours_hash['timeframes'].each do |hash|
+      return hash['open'] if hash['days'].include?(day)
+    end
+
+    false
   end
 end

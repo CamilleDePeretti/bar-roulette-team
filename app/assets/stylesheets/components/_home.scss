@@ -19,17 +19,6 @@
   font-family: "Lato";
 }
 
-#main-logo {
-  display: flex;
-  width: 100%;
-}
-
-#main-logo img {
-  margin-top: 50px;
-  height: 50px;
-  vertical-align: middle;
-}
-
 #address-form-submit {
   background-color: $sec-color !important;
   font-weight: bold !important;
@@ -66,3 +55,8 @@
     color: $main-color;
 /*  background: $accent-color !important; */
 }
+
+
+
+
+

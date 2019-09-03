@@ -4,4 +4,11 @@ class BarHoursService
 
     time[0..1] + ":" + time[2..3]
   end
+
+  def self.today
+    day = Date.today.wday
+    day = 7 if day == 0
+
+    day
+  end
 end
