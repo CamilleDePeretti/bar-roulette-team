@@ -23,17 +23,26 @@
   </div>
 </div>
 
-<div id="gif-container" style="display: none">
-  <% gifs = ["waffle.gif", "coke.gif", "cat.gif", "drink-man.gif", "drink-wine.gif", "wow.gif", "lama-yeah.gif", "beer-buddies.gif", "chicken.gif", "donut.gif", "pancakes.gif", "sweet.gif", "cookie.gif"] %>
+<div id="gif-container" style="width: 100vw; position: relative; display: none">
+  <% gifs = ["waffle.gif", "cat.gif", "drink-man.gif", "wow.gif", "donut.gif", "pancakes.gif", "sweet.gif", "cookie.gif", "hot-dog.gif"] %>
   <% gif = "gifs/"+gifs.sample %>
-  <%= image_tag "#{gif}", alt: "drink", style: "width: 100vw; object-fit: " %>
-  <div class="text">
+  <%= image_tag "#{gif}", alt: "drink", style: "width: 100vw; height: 100vh; object-fit: cover;" %>
+<!--   <div class="gif-text">
     <p>3 bars</p>
     <p>
       <span class="word wisteria">in the middle</span>
       <span class="word belize">for your night out</span>
       <span class="word green">with your friends</span>
     </p>
-  </div>
-  <!-- <p class=text-center> <%#= "Choosing 3 perfect bars for you..." %></p> -->
+  </div> -->
+
+    <div class="dad-goo" contenteditable="true">
+      <span class="goo">Picking 3 bars</span>
+      <br> <br>
+      <span class="goo">right in the middle</span>
+      <br><br>
+      <span class="goo">with your friends</span></div>
+
+
+
 </div>

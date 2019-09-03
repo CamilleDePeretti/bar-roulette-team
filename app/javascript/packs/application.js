@@ -6,11 +6,10 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initTinySlider } from '../plugins/init_tinyslider';
 import { dynamicForm } from '../components/address_form';
 import { initGif } from '../components/wheel_spinning';
-import { textMoving } from '../components/gif';
 
 initMapbox();
 initAlgolia();
 dynamicForm();
 initGif();
 initTinySlider();
-textMoving();
+

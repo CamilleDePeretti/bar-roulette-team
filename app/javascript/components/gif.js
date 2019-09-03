@@ -1,5 +1,5 @@
 const textMoving = () => {
-  var words = document.querySelectorAll('.word');
+  var words = document.getElementsByClassName('word');
   var wordArray = [];
   var currentWord = 0;
 
@@ -58,6 +58,7 @@ const textMoving = () => {
 
   changeWord();
   setInterval(changeWord, 4000);
+
 }
 
 export { textMoving };
