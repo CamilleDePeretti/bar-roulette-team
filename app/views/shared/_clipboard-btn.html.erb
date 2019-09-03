@@ -3,38 +3,46 @@
   <button id="url-btn" type='button' class="btn btn3 btn-info" >Share the link</button>
 </div>
 
-<script>
+ <script>
 
-  cb_btn = document.querySelector("#url-btn");
-  cb_btn.addEventListener("click", (event) => {
-    shareLink();
-  });
+
+const cb_btn = document.querySelector("#url-btn")
+cb_btn.addEventListener("click", (event) => {
+
+    if (typeof window.orientation !== "undefined" || navigator.userAgent.indexOf('IEMobile') !== -1) {
+      console.log("this is a mobile");
+        shareLink();
+    } else {
+      console.log("this is a desktop");
+        updateClipboard();
+    }
+})
+
 
 function shareLink() {
   if (navigator.share) {
   navigator.share({
       title: 'Bar Roulette',
-      text: 'Here are 3 choices of bar for tonight!',
       url: '<%= request.original_url %>',
   })
     .then(() => console.log('Successful share'))
     .catch((error) => console.log('Error sharing', error));
 }
 }
- // function updateClipboard() {
-//  navigator.clipboard.writeText("<%= request.original_url %>").then(function() {
-//    console.log("successful")
-//  }, function() {
-//    console.log("failed");
-//  });
-//}
 
+function updateClipboard() {
+  navigator.clipboard.writeText("<%= request.original_url %>").then(function() {
+    console.log("successful")
+  }, function() {
+    console.log("failed");
+  });
+}
 
-//tippy('#url-btn', {
-//  arrow: true,
-//  trigger: 'click', // or 'focus'
-//  content: 'Url copied to clipboard',
-//})
+ tippy('#url-btn', {
+   arrow: true,
+   trigger: 'click', // or 'focus'
+   content: 'Url copied to clipboard',
+ })
 
 
 </script>
