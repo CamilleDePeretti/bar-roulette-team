@@ -33,13 +33,13 @@ class Bar < ApplicationRecord
     contact_hash['formattedPhone']
   end
 
-  private
-
   def all_hours(day)
     hours_hash = eval(hours)
 
     hours_hash['timeframes'].each do |hash|
       return hash['open'] if hash['days'].include?(day)
     end
+
+    false
   end
 end
