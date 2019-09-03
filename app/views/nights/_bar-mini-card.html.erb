@@ -1,16 +1,9 @@
-<div class="d-flex bar-mini-card">
+<div class="d-flex bar-mini-card mb-2">
   <%= image_tag bar.photo?, class: 'bar-mini-card-img mr-2' %>
   <div>
-    <p class="m-0 bar-name"><%= link_to bar.name, '#', class: "bar-#{bar.id}" %></p>
-    <p class="m-0"><%= bar.category %></p>
-    <% if bar.hours? %>
-    <p class="m-0">🕙
-      <% if bar.all_hours(BarHoursService.today) %>
-        <%= bar.open_hours(BarHoursService.today) %> - <%= bar.close_hours(BarHoursService.today) %></p>
-      <% else %>
-        Closed Today
-      <% end %>
-    <% end %>
-    <p class="m-0">📍<%= bar.address %></p>
+    <p class="bar-name"><%= link_to bar.name, '#', class: "bar-#{bar.id} bar-name" %></p>
+    <p class="bar-category"><%= bar.category %></p>
+    <% distance = MidpointService.haversine(bar.lat, bar.lng, address.lat, address.lng)  %>
+    <p class="bar-distance"> <%= (distance / 1000).round(2) %>km </p>
   </div>
 </div>

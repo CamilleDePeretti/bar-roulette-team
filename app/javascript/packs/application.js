@@ -5,10 +5,11 @@ import { initAlgolia } from '../plugins/init_algolia';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initTinySlider } from '../plugins/init_tinyslider';
 import { dynamicForm } from '../components/address_form';
-import { initGiphy } from '../components/wheel_spinning';
+import { initGif } from '../components/wheel_spinning';
 
 initMapbox();
 initAlgolia();
 dynamicForm();
-initGiphy();
+initGif();
 initTinySlider();
+
