@@ -39,7 +39,7 @@ class MidpointService
     delta_lambda = (lng2 - lng1) * Math::PI / 180
 
     a = Math.sin(delta_phi / 2) * Math.sin(delta_phi / 2) +
-    Math.cos(phi1) * Math.cos(phi2) * Math.sin(delta_lamba / 2) *
+    Math.cos(phi1) * Math.cos(phi2) * Math.sin(delta_lambda / 2) *
     Math.sin(delta_lambda / 2)
 
     c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
