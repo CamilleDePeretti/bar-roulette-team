@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 2019_09_03_125059) do
     t.string "close"
     t.text "hours"
     t.string "photos", array: true
-    t.text "internal_details"
     t.text "contact"
     t.text "details"
     t.integer "price"

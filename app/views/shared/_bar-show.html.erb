@@ -29,17 +29,19 @@
 <% if bar.phone? %>
   <p><%= bar.phone? %></p>
 <% end %>
-<p><%= link_to "Google Maps", GoogleMapsService.gmaps_link(bar) %></p>
 </div>
+<%= link_to image_tag("icon-google-maps.png"), GoogleMapsService.gmaps_link(bar), target:'_blank', class: 'map-link' %>
 
-
-<div class="bar-hours"><% if bar.hours? %>
+<br>
+<br>
+<div class="bar-hours">
+  <% if bar.hours? %>
   <% weekdays = %w(Monday Tuesday Wednesday Thursday Friday Saturday Sunday) %>
 
   <% weekdays.each_with_index do |weekday, index| %>
     <p><%= weekday %>:
     <% if bar.all_hours(index) %>
-      <%= bar.open_hours(index) %> - <%= bar.close_hours(index) %>
+     <span class="opening-hours"><%= bar.open_hours(index) %> - <%= bar.close_hours(index) %></span>
     <% else %>
       closed</p>
     <% end %>
@@ -48,7 +50,7 @@
 </div>
 
 
-<div class="mb-3">
+<div class="d-flex justify-content-center mt-2 width-100">
   <%= render 'shared/clipboard-btn' %>
 </div>
 

@@ -4,20 +4,32 @@
   object-fit: cover;
 }
 
-.bar-show-page {
-
-}
-
 .bar-infos {
   text-align: left;
-  padding: 15px 15px;
+  padding: 20px;
+  color: white;
+  line-height: 100%;
 }
 
 .bar-hours {
   text-align: left;
-  padding: 15px 15px;
+  padding: 20px;
+  color: white;
+  line-height: 80%;
 }
 
-.mb-3 {
-
+.map-link {
+  padding: 20px;
 }
+
+.width-100 {
+  padding-bottom: 20px;
+}
+
+.back-btn {
+  position: inherit;
+  color: white;
+  font-size: 25px;
+  padding-left: 93%;
+}
+
