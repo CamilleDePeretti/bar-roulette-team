@@ -24,6 +24,7 @@ class NightsController < ApplicationController
 
   def show
     @night = Night.find(params[:id])
+    @cities = cities_get(@night)
     amnt = @night.page * 3
     page_size = 3
     @bars = @night.bars[amnt - page_size..amnt - 1]
@@ -54,5 +55,14 @@ class NightsController < ApplicationController
       @night.page -= 1
     end
     redirect_to night_path(@night) if @night.save!
+  end
+
+  private
+
+  def cities_get(night)
+    cities = night.bars.map do |bar|
+      bar.city
+    end
+    cities.uniq.join(", ")
   end
 end
