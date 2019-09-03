@@ -1,0 +1,10 @@
+
+<% if night.bars.length == 6 %>
+  <% wheel_text = "SPIN AGAIN" if night.page == 1 %>
+  <% wheel_text = "PREVIOUS BARS" if night.page == 2 %>
+
+  <%= link_to wheel_text, night_update_path(night), method: :patch, id: 'respin-btn', img: "refresh-arrow.png"  %>
+<% end %>
+
+
+

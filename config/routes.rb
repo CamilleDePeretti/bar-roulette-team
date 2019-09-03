@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :nights, only: :create
   get '/:id', to: 'nights#show', as: :night
   patch '/:id', to: 'nights#update', as: :night_update
+  resources :bars, only: :show
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
