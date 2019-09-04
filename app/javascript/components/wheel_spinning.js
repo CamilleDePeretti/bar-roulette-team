@@ -8,7 +8,6 @@ const initGif = () => {
   if (wheelBtn) {
     wheelBtn.addEventListener("click", (event) => {
       homeContainer.style.display = "none";
-      gifContainer.style.display = "block";
     });
   }
 };

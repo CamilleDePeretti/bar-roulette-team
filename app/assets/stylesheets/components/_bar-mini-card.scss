@@ -14,16 +14,12 @@
     position: relative;
   }
 
-.bar-mini-card .bar-name {
-  font-size: 20px;
-  font-weight: bold;
-}
-
 .bar-mini-card p {
   font-size: 20px;
 }
 
 .bar-name {
+  font-weight: bold;
   font-size: 22px !important;
   vertical-align: center;
   color: $sec-color !important;
