@@ -5,12 +5,13 @@ function clipboardBtn() {
     if(cb_btn.length > 0 ) {
       for (let i = 0; i < cb_btn.length; i++) {
         cb_btn[i].addEventListener("click", (event) => {
-
+          let link = cb_btn[i].dataset.pageLink;
           if (typeof window.orientation !== "undefined" || navigator.userAgent.indexOf('IEMobile') !== -1) {
             console.log("this is a mobile");
-              shareLink();
+              shareLink(link);
           } else {
             console.log("this is a desktop");
+            console.log(link);
               updateClipboard();
           }
       });
