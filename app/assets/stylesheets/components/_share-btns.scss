@@ -1,24 +1,9 @@
-#share-fb img {
-  width: 56px;
-}
-
-#share-email img {
-  width: 56px;
-}
-
-#share-wp img {
-  width: 56px;
-}
-
-.share-social {
-text-decoration: none;
-}
-
 .share-btn {
   background-color: $sub-color !important;
   font-weight: bold !important;
   color: $main-color;
   padding: 10px;
+  height: 50px;
   width: 97%;
   line-height: normal;
   border-radius: 3px;
@@ -26,6 +11,7 @@ text-decoration: none;
   display:flex;
   justify-content: center;
   align-items: center;
+  font-size: 20px !important;
 }
 
 .share-btn p {
