@@ -35,8 +35,9 @@
 
 <div class="show-background">
   <% @bars.each do |bar| %>
-    <div id="bar-<%= bar.id %>">
-      <a id="back-<%= bar.id %>" class="back-btn" href='#'><img src="assets/close-btn.png" alt=""></a>
+    <div id="bar-<%= bar.id %>" class="pt-2">
+      <a id="back-<%= bar.id %>" class="back-btn" href='#'> <i class="fas fa-arrow-circle-left"></i>
+ </a>
       <%= render 'shared/bar-show', bar: bar %>
     </div>
   <% end %>
