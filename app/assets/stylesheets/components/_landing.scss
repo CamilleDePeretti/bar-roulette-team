@@ -15,7 +15,7 @@
 }
 
 .moto {
-  color: $sec-color;
+  color: white;
   font-family: "Lato";
   font-size: 20px;
 }
@@ -32,14 +32,15 @@
 }
 
 #address-form-submit {
-  background-color: $sec-color !important;
+  background-color: #00cccc00 !important;
   font-weight: bold !important;
   font-size: 20px;
-  color: $main-color;
+  color: $sec-color;
   padding: 13px;
   width: 100%;
   line-height: normal;
-  border-radius: 3px;
+  border: 3px solid $sec-color;
+//  border-radius: 3px;
 }
 
 #add-address-btn {

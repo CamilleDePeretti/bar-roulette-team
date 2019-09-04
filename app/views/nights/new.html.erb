@@ -11,7 +11,8 @@
   </div>
 
 
-  <div class="row mx-auto mt-4 justify-content-center">
+  <div class="row mx-auto mt-4 justify-content-center form-parent">
+    <%= render 'filter-box' %>
     <div class="search-form col-11 mt-2">
       <%= render 'form' %>
     </div>
@@ -23,6 +24,8 @@
     <%= render 'shared/footer' %>
   </div>
 </div>
+
+
 
 <div id="gif-container" style="width: 100vw; position: relative; display: none">
   <% gifs = ["waffle.gif", "cat.gif", "drink-man.gif", "wow.gif", "donut.gif", "pancakes.gif", "sweet.gif", "cookie.gif", "hot-dog.gif"] %>
