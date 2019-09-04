@@ -1,5 +1,6 @@
 .show-background {
-background: linear-gradient($main-color, #65053E);
+background: linear-gradient($main-color, $main-color);
+height: 100%;
 }
 
 .show-background h5 {
