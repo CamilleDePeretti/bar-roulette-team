@@ -8,6 +8,7 @@ class NightsController < ApplicationController
 
   def create
     @night = Night.new
+    time1 = Time.now
     params[:addresses].select(&:present?).each do |address|
       Address.create(address: address, night: @night)
       # redirect_to(errorpage_path) if Address.last.nil?
@@ -19,6 +20,11 @@ class NightsController < ApplicationController
     @night.lng = coords[1]
     @night.save
     BarCreationService.create_bars(@night)
+    time2 = Time.now
+    time3 = time2 - time1
+      if time3 < 5
+        sleep 5 - time3
+      end
     redirect_to night_path(@night)
   end
 
