@@ -20,7 +20,7 @@ function clipboardBtn() {
 }
 
 
-function shareLink() {
+function shareLink(link) {
   if (navigator.share) {
   navigator.share({
       title: 'Bar Roulette',
