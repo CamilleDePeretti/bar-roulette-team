@@ -6,10 +6,12 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initTinySlider } from '../plugins/init_tinyslider';
 import { dynamicForm } from '../components/address_form';
 import { initGif } from '../components/wheel_spinning';
+import { showFilters } from '../components/filters.js';
 
 initMapbox();
 initAlgolia();
 dynamicForm();
 initGif();
 initTinySlider();
+showFilters();
 

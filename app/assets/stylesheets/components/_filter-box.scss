@@ -1,0 +1,31 @@
+.form-parent {
+  position: relative;
+}
+
+.filter-box {
+  position: absolute;
+  background: #5D1A3E;
+  padding: 10px;
+  z-index: 50;
+  border-radius: 5px;
+  top: 180px;
+  width: 100vh;
+}
+
+.filter-box a {
+  color: white;
+  display: block;
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.filter-box a:hover {
+  color: #FF22A4;
+  text-decoration: none;
+  background: #080E4A;
+}
+
+.filter-box-hide {
+  display: none;
+}

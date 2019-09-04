@@ -1,7 +1,19 @@
 class FoursquareService
-  def self.bars_get(night, amnt, radius, increment)
+  CATS = {
+    all: '4bf58dd8d48988d116941735,50327c8591d4c4b30a586d5d,4bf58dd8d48988d121941735',
+    beer: '4bf58dd8d48988d120941735,4bf58dd8d48988d11b941735,4bf58dd8d48988d116941735,50327c8591d4c4b30a586d5d,4bf58dd8d48988d11d941735,56aa371ce4b08b9a8d57356c',
+    wine: '4bf58dd8d48988d1d5941735,4bf58dd8d48988d123941735',
+    cocktail: '52e81612bcbc57f1066b7a0e,4bf58dd8d48988d11e941735,4bf58dd8d48988d1d5941735,4bf58dd8d48988d11c941735,4bf58dd8d48988d1d4941735,56aa371be4b08b9a8d57354d,4bf58dd8d48988d121941735',
+    whisky: '4bf58dd8d48988d122941735',
+    food: '4bf58dd8d48988d10d941735,4bf58dd8d48988d155941735,4bf58dd8d48988d11b941735',
+    outdoor: '4bf58dd8d48988d117941735',
+    queer: '4bf58dd8d48988d1d8941735',
+    smoke: '4bf58dd8d48988d119941735,52e81612bcbc57f1066b7a0d,4bf58dd8d48988d117941735'
+  }
+
+  def self.bars_get(night, amnt, radius, increment, cat)
     puts "Looking for #{amnt} bars in a #{(radius/1_000.0).round(2)}km radius"
-    results = client.search_venues(:ll => "#{night.lat}, #{night.lng}", :radius => radius, :limit => amnt, :categoryId => '4bf58dd8d48988d116941735,50327c8591d4c4b30a586d5d,4bf58dd8d48988d121941735', :v => '20190827').to_hash
+    results = client.search_venues(:ll => "#{night.lat}, #{night.lng}", :radius => radius, :limit => amnt, :categoryId => CATS[cat], :v => '20190827').to_hash
     print_results(results)
 
     return results if radius > 100_000
@@ -11,7 +23,7 @@ class FoursquareService
 
     if results['venues'].length < amnt
       sleep 0.5 # Maximum 2 QPS, so sleeping just to make sure
-      return bars_get(night, amnt, radius + increment, increment * multiplier)
+      return bars_get(night, amnt, radius + increment, increment * multiplier, cat)
     end
 
     puts "#{results['venues'].length}"
