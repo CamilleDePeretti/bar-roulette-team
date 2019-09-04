@@ -1,12 +1,12 @@
 class BarCreationService
-  def self.create_bars(night)
+  def self.create_bars(night, cat)
     Hashie.logger = Logger.new('/dev/null') # Fix Hashie bug warning
 
     bar_amnt = 6
     search_radius = 250
     increment = 100
 
-    results = FoursquareService.bars_get(night, bar_amnt, search_radius, increment)
+    results = FoursquareService.bars_get(night, bar_amnt, search_radius, increment, cat.to_sym)
 
     puts "Finishing getting the #{results['venues'].length} bars, now to create them"
 

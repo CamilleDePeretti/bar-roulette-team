@@ -19,7 +19,7 @@ class NightsController < ApplicationController
     @night.lat = coords[0]
     @night.lng = coords[1]
     @night.save
-    BarCreationService.create_bars(@night)
+    BarCreationService.create_bars(@night, params[:filters])
     time2 = Time.now
     time3 = time2 - time1
       if time3 < 5
@@ -47,8 +47,8 @@ class NightsController < ApplicationController
     @markers <<
     {
       lat: @night.lat, lng: @night.lng,
-      infoWindow: render_to_string(partial: "info_window"),
-      image_url: helpers.asset_url('midpoint-logo.png')
+      infoWindow: render_to_string(partial: "info_window_midpoint"),
+      image_url: helpers.asset_url('flagwithborder.png')
     }
   end
 

@@ -15,8 +15,8 @@
   </div>
 
   <div class="glide__arrows" data-glide-el="controls">
-    <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><</button>
-    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">></button>
+    <button class="glide__arrow glide__arrow--left" style="top:45%" data-glide-dir="<"><</button>
+    <button class="glide__arrow glide__arrow--right" style="top:45%" data-glide-dir=">">></button>
   </div>
 </div>
 <% end %>
@@ -37,11 +37,10 @@
 <div class="bar-hours">
   <% if bar.hours? %>
   <% weekdays = %w(Monday Tuesday Wednesday Thursday Friday Saturday Sunday) %>
-
   <% weekdays.each_with_index do |weekday, index| %>
     <p><%= weekday %>:
     <% if bar.all_hours(index) %>
-     <span class="opening-hours"><%= bar.open_hours(index) %> - <%= bar.close_hours(index) %></span>
+    <%= bar.open_hours(index) %> - <%= bar.close_hours(index) %>
     <% else %>
       closed</p>
     <% end %>
@@ -51,7 +50,7 @@
 
 
 <div class="d-flex justify-content-center mt-2 width-100">
-  <%= render 'shared/clipboard-btn' %>
+  <%= render 'shared/clipboard-btn', link: "http://bar-roulette.com" + bar_path(bar) %>
 </div>
 
 

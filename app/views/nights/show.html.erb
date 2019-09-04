@@ -1,18 +1,21 @@
 <div id="main-bar-show">
   <div class="show-background">
-    <h5 class="text-center font-weight-bold mb-1">
-    3 BARS FOR YOU IN <%= @cities.upcase %> !</h5>
+    <h5 class="text-center font-weight-bold mb-1" style="font-size: 15px">
+    WOHOOO!<br>WE FOUND THE  TOP THREE BARS IN YOUR AREA!</h5>
 
     <div
     id="map"
-    style="width: 100%;
+    style="
     height: 300px;
-    margin-bottom: 5px;"
+    margin-bottom: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 3px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
 
-    <div class="row mx-auto pl-1 pr-1">
+    <div class="row mx-auto">
       <% @bars.each do |bar| %>
         <div class="col-12 mt-2">
           <%= render 'bar-mini-card', bar: bar, address: @night.addresses.first %>
@@ -21,20 +24,20 @@
     </div>
 
     <div class="d-flex justify-content-center my-2 mx-2">
-      <%= render 'shared/clipboard-btn' %>
+      <%= render 'shared/clipboard-btn', link: request.original_url %>
     </div>
 
-    <div class="d-flex justify-content-center mx-2 mt-2">
+    <div class="d-flex justify-content-center mx-2 mt-2 mb-3">
       <%= render 'respin-btn', night: @night %>
     </div>
-
   </div>
 </div>
 
 <div class="show-background">
   <% @bars.each do |bar| %>
-    <div id="bar-<%= bar.id %>">
-      <a id="back-<%= bar.id %>" class="back-btn" href='#'>X</a>
+    <div id="bar-<%= bar.id %>" class="pt-2">
+      <a id="back-<%= bar.id %>" class="back-btn" href='#'> <i class="fas fa-arrow-circle-left"></i>
+ </a>
       <%= render 'shared/bar-show', bar: bar %>
     </div>
   <% end %>
