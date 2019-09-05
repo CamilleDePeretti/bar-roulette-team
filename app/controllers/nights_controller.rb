@@ -35,7 +35,8 @@ class NightsController < ApplicationController
         lat: bar.lat,
         lng: bar.lng,
         infoWindow: render_to_string(partial: "info_window", locals: { bar: bar }),
-        image_url: helpers.asset_url('beer-pin.png')
+        image_url: helpers.asset_url('martini.png')
+
       }
     end
     @counter = 0
@@ -47,7 +48,7 @@ class NightsController < ApplicationController
     {
       lat: address.lat, lng: address.lng,
       infoWindow: render_to_string(partial: "info_window_address"),
-      image_url: helpers.asset_url('location-logo.png')
+      image_url: helpers.asset_url('flagwithborder.png')
     }
     end
   end

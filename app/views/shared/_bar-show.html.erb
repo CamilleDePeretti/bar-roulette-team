@@ -28,23 +28,22 @@
 
   <div class="bar-infos">
     <h2><%= bar.name %></h2>
-    <p class="bar-show-category"><%= bar.category %></p>
+    <p class="bar-show-category bar-cost"><%= bar.category %>
+     <% if bar.price? %>
+      <%= '$' * bar.price? %><span class="mx-0 text-muted"><%= '$' * (4 - bar.price?) %></span>
+    <% end %></p>
     <p><i class="fas fa-map-pin color-main"></i>  <%= bar.address %></p>
   <% if bar.phone? %>
-    <p><%= bar.phone? %></p>
-    <hr>
+    <p class="bar-phone"> <i class="fas fa-phone"></i> <%= bar.phone? %> </p>
   <% end %>
-
-
   </div>
-  <br>
-  <br>
+
   <div class="bar-hours">
     <% if bar.hours? %>
-    <h3><i class="clock fas fa-clock"></i> Hours:</h3>
+    <h3><i class="clock fas fa-clock"></i> Opening Hours:</h3>
     <% weekdays = %w(Monday Tuesday Wednesday Thursday Friday Saturday Sunday) %>
     <% weekdays.each_with_index do |weekday, index| %>
-      <p><%= weekday %>:
+      <p class="weekdays"><%= weekday %>:
       <% if bar.all_hours(index) %>
       <%= bar.open_hours(index) %> - <%= bar.close_hours(index) %>
       <% else %>

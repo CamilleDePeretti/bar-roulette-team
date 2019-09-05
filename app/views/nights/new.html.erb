@@ -4,7 +4,7 @@
   </div>
   <div class="col-12 text-center">
     <h5 class="moto mb-0">find a bar right in the middle</h5>
-    <h5 class="moto my-1">for your night out with friends</h5>
+    <h5 class="moto my-1">between you and your friends</h5>
   </div>
   <div class="row mx-auto mt-4 justify-content-center form-parent">
     <%= render 'filter-box' %>
@@ -17,12 +17,6 @@
   </div>
 </div>
 <div id="something"></div>
-
-
-
-
-
-
 
 <script>
   const landingDiv = document.querySelector("#something");
@@ -50,7 +44,7 @@
     const code = `<%= render 'gif' %>`;
     img.insertAdjacentHTML('afterend', code);
     setTimeout(() => {
-      // form.submit();
+      form.submit();
     }, 1000)
   });
 
