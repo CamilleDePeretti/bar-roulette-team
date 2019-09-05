@@ -1,9 +1,8 @@
-<div class="d-flex bar-mini-card mb-1">
-  <%= image_tag bar.photo?, class: 'bar-mini-card-img mr-2' %>
-  <div>
-    <p class="bar-name"><%= link_to bar.name, '#', class: "bar-#{bar.id} bar-name" %></p>
-    <p class="bar-category"><%= bar.category %></p>
-    <% distance = MidpointService.haversine(bar.lat, bar.lng, address.lat, address.lng)  %>
-    <p class="bar-distance"> <%= (distance / 1000).round(2) %>km </p>
-  </div>
+
+<div class="bar-mini-card px-3 mb-2">
+  <p class="bar-name my-1"><i class="fas fa-beer color-sec"></i> <%= link_to bar.name, '#', class: "bar-#{bar.id}" %></p>
+  <p class="bar-category"><%= bar.category %></p>
+  <p class="bar-cost">$$$$</p>
+  <%= image_tag bar.photo?, class: 'w-100 bar-mini-photo'%>
+  <p class="my-0 bar-address"><i class="fas fa-map-pin color-main"></i> <%= bar.address %></p>
 </div>

@@ -1,27 +1,19 @@
 <div id="main-bar-show">
   <div class="show-background">
-    <h5 class="text-center font-weight-bold mb-1" style="font-size: 15px">
-    WOHOOO!<br>WE FOUND THE  TOP THREE BARS IN YOUR AREA!</h5>
-
     <div
     id="map"
     style="
     height: 300px;
-    margin-bottom: 5px;
-    margin-left: 15px;
-    margin-right: 15px;
-    border-radius: 3px;"
+    margin-bottom: 5px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
 
-    <div class="row mx-auto">
-      <% @bars.each do |bar| %>
-        <div class="col-12 mt-2">
-          <%= render 'bar-mini-card', bar: bar, address: @night.addresses.first %>
-        </div>
-      <% end %>
-    </div>
+    <% @bars.each do |bar| %>
+      <div class="my-4">
+        <%= render 'bar-mini-card', bar: bar, address: @night.addresses.first %>
+      </div>
+    <% end %>
 
     <div class="d-flex justify-content-center my-2 mx-2">
       <%= render 'shared/clipboard-btn', link: request.original_url %>
