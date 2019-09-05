@@ -1,5 +1,12 @@
 <div id="main-bar-show">
   <div class="show-background">
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+      <%= link_to "/", class: "navbar-brand" do %>
+      <%= image_tag "https://res.cloudinary.com/du4r5hykw/image/upload/v1567092388/main_logo.png", id: 'nav-logo' %>
+      <% end %>
+      <h5 class="text-center font-weight-bold" style="font-size: 15px">CHOSE THREE BARS FOR YOU!</h5>
+    </div>
+
     <div
     id="map"
     style="
@@ -27,9 +34,14 @@
 
 <div class="show-background">
   <% @bars.each do |bar| %>
-    <div id="bar-<%= bar.id %>" class="pt-2">
+    <div id="bar-<%= bar.id %>" class="">
+      <div class="navbar nav-bar-show navbar-expand-sm navbar-light navbar-lewagon">
+        <%= link_to "/", class: "navbar-brand" do %>
+        <%= image_tag "https://res.cloudinary.com/du4r5hykw/image/upload/v1567092388/main_logo.png", id: 'nav-logo' %>
+        <% end %>
+      </div>
       <a id="back-<%= bar.id %>" class="back-btn" href='#'> <i class="fas fa-arrow-circle-left"></i>
- </a>
+      </a>
       <%= render 'shared/bar-show', bar: bar %>
     </div>
   <% end %>
