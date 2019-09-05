@@ -1,6 +1,6 @@
 
 <div class="bar-mini-card px-3 mb-2">
-  <p class="bar-name my-1"><i class="fas fa-beer color-sec"></i> <%= link_to bar.name, '#', class: "bar-#{bar.id}" %></p>
+  <p class="bar-name my-1"><i class="fas fa-glass-martini-alt color-sec"></i> <%= link_to bar.name, '#', class: "bar-#{bar.id}" %></p>
   <p class="bar-category"><%= bar.category %></p>
   <% if bar.price? %>
   <p class="bar-cost"><%= '$' * bar.price? %><span class="mx-0 text-muted"><%= '$' * (4 - bar.price?) %></span> </p>
