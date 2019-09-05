@@ -1,56 +1,57 @@
-<% if bar.photos.length > 0 %>
-<div class="glide-div-<%= bar.id %>">
-  <div data-glide-el="track" class="glide__track">
-    <ul class="glide__slides">
-      <% bar.photos.each do |photo| %>
-        <li class="glide__slide"><%= image_tag photo, class: 'bar-show-photo' %></li>
+<div class="bar-show-main">
+  <% if bar.photos.length > 0 %>
+  <div class="glide-div-<%= bar.id %>">
+    <div data-glide-el="track" class="glide__track">
+      <ul class="glide__slides">
+        <% bar.photos.each do |photo| %>
+          <li class="glide__slide"><%= image_tag photo, class: 'bar-show-photo' %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="glide__bullets" data-glide-el="controls[nav]" style="display:none;">
+      <% bar.photos.each_with_index do |_photo, index| %>
+        <button class="glide__bullet" data-glide-dir="=<%= index %>"></button>
       <% end %>
-    </ul>
+    </div>
+
+    <div class="glide__arrows" data-glide-el="controls">
+      <button class="glide__arrow glide__arrow--left" style="top:45%" data-glide-dir="<"><</button>
+      <button class="glide__arrow glide__arrow--right" style="top:45%" data-glide-dir=">">></button>
+    </div>
   </div>
+  <% end %>
 
-  <div class="glide__bullets" data-glide-el="controls[nav]" style="display:none;">
-    <% bar.photos.each_with_index do |_photo, index| %>
-      <button class="glide__bullet" data-glide-dir="=<%= index %>"></button>
-    <% end %>
+
+  <div class="bar-infos">
+    <h2><%= bar.name %></h2>
+  <p><%= bar.category %></p>
+  <p><%= bar.address %></p>
+  <% if bar.phone? %>
+    <p><%= bar.phone? %></p>
+  <% end %>
   </div>
+  <%= link_to image_tag("icon-google-maps.png"), GoogleMapsService.gmaps_link(bar), target:'_blank', class: 'map-link' %>
 
-  <div class="glide__arrows" data-glide-el="controls">
-    <button class="glide__arrow glide__arrow--left" style="top:45%" data-glide-dir="<"><</button>
-    <button class="glide__arrow glide__arrow--right" style="top:45%" data-glide-dir=">">></button>
-  </div>
-</div>
-<% end %>
-
-
-<div class="bar-infos">
-  <h2><%= bar.name %></h2>
-<p><%= bar.category %></p>
-<p><%= bar.address %></p>
-<% if bar.phone? %>
-  <p><%= bar.phone? %></p>
-<% end %>
-</div>
-<%= link_to image_tag("icon-google-maps.png"), GoogleMapsService.gmaps_link(bar), target:'_blank', class: 'map-link' %>
-
-<br>
-<br>
-<div class="bar-hours">
-  <% if bar.hours? %>
-  <% weekdays = %w(Monday Tuesday Wednesday Thursday Friday Saturday Sunday) %>
-  <% weekdays.each_with_index do |weekday, index| %>
-    <p><%= weekday %>:
-    <% if bar.all_hours(index) %>
-    <%= bar.open_hours(index) %> - <%= bar.close_hours(index) %>
-    <% else %>
-      closed</p>
+  <br>
+  <br>
+  <div class="bar-hours">
+    <% if bar.hours? %>
+    <% weekdays = %w(Monday Tuesday Wednesday Thursday Friday Saturday Sunday) %>
+    <% weekdays.each_with_index do |weekday, index| %>
+      <p><%= weekday %>:
+      <% if bar.all_hours(index) %>
+      <%= bar.open_hours(index) %> - <%= bar.close_hours(index) %>
+      <% else %>
+        closed</p>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
+  </div>
+
+
+  <div class="d-flex justify-content-center mt-2 width-100">
+    <%= render 'shared/clipboard-btn', link: "http://bar-roulette.com" + bar_path(bar) %>
+  </div>
 </div>
-
-
-<div class="d-flex justify-content-center mt-2 width-100">
-  <%= render 'shared/clipboard-btn', link: "http://bar-roulette.com" + bar_path(bar) %>
-</div>
-
 
