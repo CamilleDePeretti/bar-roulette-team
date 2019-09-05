@@ -5,7 +5,7 @@ class Bar < ApplicationRecord
   validates :address, presence: true, allow_blank: false
 
   def photo?
-    placeholder_url = "https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80"
+    placeholder_url = "https://i.imgur.com/foH1VlS.jpg"
 
     return placeholder_url if photos.nil? || photos.blank?
 
@@ -35,7 +35,7 @@ class Bar < ApplicationRecord
   end
 
   def price?
-    return false if details.nil? || eval(details)['price'].nil?
+    return false if details.nil? || eval(details).nil? || eval(details)['price'].nil?
 
     eval(details)['price']['tier']
   end

@@ -1,51 +1,92 @@
-  .bar-mini-card-img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 5px 0px 0px 5px;
-    padding: 5px;
-  }
+.bar-mini-card {
+  color: white;
+  font-family: $roulette-font;
+  position: relative;
 
-  .bar-mini-card {
-    background: #f8f9fa4d;
-    color: $main-color;
-    width: 100%;
-    border-radius: 5px;
-    position: relative;
-    font-family: $roulette-font;
-  }
+}
 
-.bar-mini-card p {
-  font-size: 20px;
+.bar-mini-card .bar-address {
+  position: absolute;
+  bottom: 10px;
+  padding-left: 10px;
+  padding-right: 15px;
+  background: rgba(25,25,25,0.85);
+  border-radius: 0 5px 5px 0;
+  max-width: 375px;
+}
+
+.bar-mini-card .bar-category {
+  position: absolute;
+  top: 65px;
+  padding-left: 10px;
+  padding-right: 15px;
+  background: rgba(25,25,25,0.85);
+  border-radius: 0 5px 5px 0;
+}
+
+.bar-mini-card .bar-cost {
+  position: absolute;
+  font-size: 14px;
+  top: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: rgba(25,25,25,0.85);
+  border-radius: 0 5px 5px 0;
+}
+
+.bar-mini-card a {
+  color: white;
+}
+
+.bar-mini-card a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.bar-mini-photo {
+  height: 250px;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 .bar-name {
-  font-weight: bold;
-  font-size: 22px !important;
-  vertical-align: center;
-  color: white !important;
+  font-size: 28px;
+  font-weight: 400;
   position: absolute;
-  top: 5px;
-  right: 5px;
-  white-space: nowrap;
-}
-
-.bar-distance {
-  font-size: 18px !important;
-  vertical-align: center;
-  color: $main-color !important;
-  position: absolute;
-  top: 70px !important;
-  right: 10px;
-  font-weight: bold;
+  top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: rgba(25,25,25,0.85);
+  border-radius: 0 5px 5px 0;
 }
 
 .bar-category {
-  font-size: 18px !important;
-  vertical-align: center;
-  color: $main-color !important;
-  position: absolute;
-  top: 45px;
-  right: 10px;
+  font-size: 20px;
+  font-weight: 300;
 }
 
+.bar-mini-card .bar-details {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.color-main {
+  color: $accent-color;
+}
+
+.color-sec {
+  color: $sub-color;
+}
+
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}

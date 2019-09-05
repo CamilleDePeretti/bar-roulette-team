@@ -14,6 +14,7 @@ const showFilters = () => {
       filters[i].addEventListener("click", (event) => {
         filterBox.classList.toggle("filter-box-hide");
         filterInput.value = filters[i].innerText.toLowerCase();
+        filterBtn.innerText = `Filters: ${filters[i].innerText}`;
         console.log(filterInput.value);
       });
     }

@@ -7,26 +7,20 @@
       <h5 class="text-center font-weight-bold" style="font-size: 15px">CHOSE THREE BARS FOR YOU!</h5>
     </div>
 
-
     <div
     id="map"
     style="
     height: 300px;
-    margin-bottom: 5px;
-    margin-left: 15px;
-    margin-right: 15px;
-    border-radius: 3px;"
+    margin-bottom: 5px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
 
-    <div class="row mx-auto">
-      <% @bars.each do |bar| %>
-        <div class="col-12 mt-2">
-          <%= render 'bar-mini-card', bar: bar, address: @night.addresses.first %>
-        </div>
-      <% end %>
-    </div>
+    <% @bars.each do |bar| %>
+      <div class="my-4">
+        <%= render 'bar-mini-card', bar: bar, address: @night.addresses.first %>
+      </div>
+    <% end %>
 
     <div class="d-flex justify-content-center my-2 mx-2">
       <%= render 'shared/clipboard-btn', link: request.original_url %>
@@ -55,12 +49,17 @@
 
 <% @bars.each do |bar| %>
 <script>
-  document.querySelector('.bar-<%= bar.id %>').addEventListener('click', (event) => {
-    // event.preventDefault();
-    console.log('clicked <%= bar.name %>');
-    document.querySelector('#main-bar-show').style.display = 'none';
-    document.querySelector('#bar-<%= bar.id %>').removeAttribute('style');
-  });
+  const bar<%= bar.id %> = document.querySelectorAll('.bar-<%= bar.id %>');
+
+  for(let i = 0; i < bar<%= bar.id %>.length; i++) {
+    bar<%= bar.id %>[i].addEventListener('click', (event) => {
+      // event.preventDefault();
+      console.log('clicked <%= bar.name %>');
+      document.querySelector('#main-bar-show').style.display = 'none';
+      document.querySelector('#bar-<%= bar.id %>').removeAttribute('style');
+    });
+  }
+
 
   document.querySelector('#back-<%= bar.id %>').addEventListener('click', (event) => {
     document.querySelector('#bar-<%= bar.id %>').style.display = 'none';
