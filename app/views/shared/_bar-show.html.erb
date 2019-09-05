@@ -28,7 +28,7 @@
     <p class="bar-show-category"><%= bar.category %></p>
     <p><i class="fas fa-map-pin color-main"></i>  <%= bar.address %></p>
   <% if bar.phone? %>
-    <p><%= bar.phone? %></p>
+    <p> <i class="fas fa-phone"></i> <%= bar.phone? %> </p>
     <hr>
   <% end %>
 
@@ -41,7 +41,7 @@
     <h3><i class="clock fas fa-clock"></i> Hours:</h3>
     <% weekdays = %w(Monday Tuesday Wednesday Thursday Friday Saturday Sunday) %>
     <% weekdays.each_with_index do |weekday, index| %>
-      <p><%= weekday %>:
+      <p class="weekdays"><%= weekday %>:
       <% if bar.all_hours(index) %>
       <%= bar.open_hours(index) %> - <%= bar.close_hours(index) %>
       <% else %>
