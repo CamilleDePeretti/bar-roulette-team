@@ -44,12 +44,18 @@ class NightsController < ApplicationController
         image_url: helpers.asset_url('beer-pin.png')
       }
     end
-    @markers <<
+    @counter = 0
+    @night.addresses.reverse.each do |address|
+      @counter += 1
+      @night_address = address.address
+
+      @markers <<
     {
-      lat: @night.lat, lng: @night.lng,
-      infoWindow: render_to_string(partial: "info_window_midpoint"),
-      image_url: helpers.asset_url('flagwithborder.png')
+      lat: address.lat, lng: address.lng,
+      infoWindow: render_to_string(partial: "info_window_address"),
+      image_url: helpers.asset_url('location-logo.png')
     }
+    end
   end
 
   def update
