@@ -49,12 +49,17 @@
 
 <% @bars.each do |bar| %>
 <script>
-  document.querySelector('.bar-<%= bar.id %>').addEventListener('click', (event) => {
-    // event.preventDefault();
-    console.log('clicked <%= bar.name %>');
-    document.querySelector('#main-bar-show').style.display = 'none';
-    document.querySelector('#bar-<%= bar.id %>').removeAttribute('style');
-  });
+  const bar<%= bar.id %> = document.querySelectorAll('.bar-<%= bar.id %>');
+
+  for(let i = 0; i < bar<%= bar.id %>.length; i++) {
+    bar<%= bar.id %>[i].addEventListener('click', (event) => {
+      // event.preventDefault();
+      console.log('clicked <%= bar.name %>');
+      document.querySelector('#main-bar-show').style.display = 'none';
+      document.querySelector('#bar-<%= bar.id %>').removeAttribute('style');
+    });
+  }
+
 
   document.querySelector('#back-<%= bar.id %>').addEventListener('click', (event) => {
     document.querySelector('#bar-<%= bar.id %>').style.display = 'none';

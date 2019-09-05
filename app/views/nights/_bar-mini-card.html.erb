@@ -2,7 +2,10 @@
 <div class="bar-mini-card px-3 mb-2">
   <p class="bar-name my-1"><i class="fas fa-beer color-sec"></i> <%= link_to bar.name, '#', class: "bar-#{bar.id}" %></p>
   <p class="bar-category"><%= bar.category %></p>
-  <p class="bar-cost">$$$$</p>
+  <% if bar.price? %>
+  <p class="bar-cost"><%= '$' * bar.price? %><span class="mx-0 text-muted"><%= '$' * (4 - bar.price?) %></span> </p>
+  <% end %>
   <%= image_tag bar.photo?, class: 'w-100 bar-mini-photo'%>
   <p class="my-0 bar-address"><i class="fas fa-map-pin color-main"></i> <%= bar.address %></p>
+  <%= link_to "", '#', class: "bar-#{bar.id} card-link"%>
 </div>

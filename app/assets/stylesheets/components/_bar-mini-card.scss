@@ -12,6 +12,7 @@
   padding-right: 15px;
   background: rgba(25,25,25,0.85);
   border-radius: 0 5px 5px 0;
+  max-width: 375px;
 }
 
 .bar-mini-card .bar-category {
@@ -77,4 +78,15 @@
 
 .color-sec {
   color: $sub-color;
+}
+
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
 }
