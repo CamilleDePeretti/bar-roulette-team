@@ -83,6 +83,12 @@
   font-size: 20px;
 }
 
+.bar-hours h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px !important;
+}
+
 .weekdays {
   font-weight: bold !important;
 }
@@ -109,4 +115,11 @@
 
 .back-btn:visited{
   color: white !important;
+}
+
+.bar-show-category .bar-cost {
+  position: absolute;
+  font-size: 20px !important;
+  background: rgba(25,25,25,0.85);
+  border-radius: 0 5px 5px 0;
 }
