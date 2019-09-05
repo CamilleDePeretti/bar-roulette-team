@@ -76,9 +76,50 @@
 .hr {
   border-top: 10px solid rgba(255, 255, 255, 1.0);
   color: white;
-  margin-bottom: 5px !important;
+  margin-bottom: 1px !important;
 }
 
 .clock {
   font-size: 20px;
+}
+
+.bar-hours h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px !important;
+}
+
+.weekdays {
+  font-weight: bold !important;
+}
+
+.bar-phone:active {
+  color: white !important;
+}
+
+.bar-phone:hover{
+  color: white !important;
+}
+
+.bar-phone:visited{
+  color: white !important;
+}
+
+.back-btn:active {
+  color: white !important;
+}
+
+.back-btn:hover{
+  color: white !important;
+}
+
+.back-btn:visited{
+  color: white !important;
+}
+
+.bar-show-category .bar-cost {
+  position: absolute;
+  font-size: 20px !important;
+  background: rgba(25,25,25,0.85);
+  border-radius: 0 5px 5px 0;
 }
