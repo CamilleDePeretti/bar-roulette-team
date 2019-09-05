@@ -38,6 +38,8 @@
     img.setAttribute("type", 'video/mp4');
     img.setAttribute('autoplay', 'true');
     img.setAttribute('loop', 'true');
+    img.setAttribute('muted', 'true');
+    img.play();
     // img.settAttribute('controls', 'true');
     img.style = "width: 100vw; height: 100vh; object-fit: cover";
     document.body.appendChild(img)
