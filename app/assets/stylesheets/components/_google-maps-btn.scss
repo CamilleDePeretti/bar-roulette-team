@@ -17,3 +17,24 @@
   margin-bottom: 94px !important;
   background-position: center !important;
 }
+
+.map-link:hover {
+  height: 50px;
+  width: 97%;
+  font-family: $roulette-font;
+  text-align: center;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $sec-color !important;
+  font-weight: bold !important;
+  font-size: 20px;
+  color: black;
+  padding: 13px;
+  line-height: normal;
+  border: 3px solid $sec-color;
+  border-radius: 5px;
+  margin-bottom: 10px !important;
+  background-position: center !important;
+  text-decoration: none;
+}

@@ -54,6 +54,21 @@
   background-position: center !important;
 }
 
+#address-form-submit:hover {
+  background-color: $sec-color !important;
+  font-weight: bold !important;
+  font-family: $roulette-font;
+  font-size: 20px;
+  color: black;
+  padding: 13px;
+  width: 100%;
+  line-height: normal;
+  border: 3px solid $sec-color;
+  border-radius: 5px;
+  margin-bottom: 94px !important;
+  background-position: center !important;
+}
+
 #add-address-btn {
     width: 35px !important;
     height: 35px !important;
