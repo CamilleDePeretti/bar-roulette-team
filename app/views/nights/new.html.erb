@@ -22,13 +22,13 @@
 
 
 <div id="gif-container" style="width: 100vw; position: relative; display: none">
-  <% gifs = ["waffle.gif", "cat.gif", "drink-man.gif", "wow.gif", "donut.gif", "pancakes.gif", "sweet.gif", "cookie.gif", "hot-dog.gif"] %>
+  <% gifs = ["waffle.gif", "cat.gif", "drink-man.gif", "wow.gif", "donut.gif", "pancakes.gif", "magic.gif", "cookie.gif", "hot-dog.gif"] %>
   <% gif = "gifs/"+gifs.sample %>
-  <%= image_tag "#{gif}", alt: "drink", style: "width: 100vw; height: 100vh; object-fit: cover;" %>
+  <img src="<%= image_path(gif)%>" alt="drink" style="width: 100vw; height: 100vh; object-fit: cover;">
 <!--   <div class="gif-text">
     <p>3 bars</p>
     <p>
-      <span class="word wisteria">in the middle</span>
+      <span class="word wiseria">in the middle</span>
       <span class="word belize">for your night out</span>
       <span class="word green">with your friends</span>
     </p>
