@@ -76,7 +76,7 @@
 .hr {
   border-top: 10px solid rgba(255, 255, 255, 1.0);
   color: white;
-  margin-bottom: 5px !important;
+  margin-bottom: 1px !important;
 }
 
 .clock {
@@ -85,4 +85,28 @@
 
 .weekdays {
   font-weight: bold !important;
+}
+
+.bar-phone:active {
+  color: white !important;
+}
+
+.bar-phone:hover{
+  color: white !important;
+}
+
+.bar-phone:visited{
+  color: white !important;
+}
+
+.back-btn:active {
+  color: white !important;
+}
+
+.back-btn:hover{
+  color: white !important;
+}
+
+.back-btn:visited{
+  color: white !important;
 }
