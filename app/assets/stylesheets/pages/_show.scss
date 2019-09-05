@@ -1,6 +1,12 @@
 .show-background {
-background: linear-gradient($main-color, $main-color);
-height: 490px;
+  background-image:
+    linear-gradient(
+      rgba(53, 48, 48, 0.53),
+      rgba(53, 48, 48, 0.53)
+    ),
+    url("https://res.cloudinary.com/du4r5hykw/image/upload/v1567619446/background_a.jpg");
+  background-size: 1850px;
+  background-repeat: no-repeat;
 }
 
 .show-background h5 {
@@ -19,7 +25,7 @@ height: 490px;
   width: 300px !important;
   height: 35px !important;
   background-color: $sec-color !important;
-  border: 5px !important;
+  border: 5px solid $sec-color !important;
 }
 
 #main-bar-show h5 {

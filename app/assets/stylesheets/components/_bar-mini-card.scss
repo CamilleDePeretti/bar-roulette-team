@@ -1,5 +1,5 @@
   .bar-mini-card-img {
-    width: 220px;
+    width: 150px;
     height: 150px;
     object-fit: cover;
     border-radius: 5px 0px 0px 5px;
@@ -7,7 +7,7 @@
   }
 
   .bar-mini-card {
-    background: white;
+    background: #f8f9fa4d;
     color: $main-color;
     width: 100%;
     border-radius: 5px;
@@ -22,13 +22,10 @@
   font-weight: bold;
   font-size: 22px !important;
   vertical-align: center;
-  color: $sec-color !important;
+  color: white !important;
   position: absolute;
   top: 5px;
   right: 5px;
-  background-color: #030f4bc2;
-  padding-left: 20px;
-  padding-right: 20px;
   white-space: nowrap;
 }
 
