@@ -3,7 +3,8 @@ $body-color: white;
 $main-color: #030F4B;
 $sub-color: #24D9F1;
 $accent-color: #FF22A4;
-$sec-color: #EBA623;
+$sec-color: #00CCCC;
+$roulette-font: "Roboto";
 
 // Graphical variables
 @import "config/fonts";
@@ -22,7 +23,6 @@ $sec-color: #EBA623;
 @import "components/share-btns";
 @import "components/home";
 @import "components/bar-mini-card";
-@import "components/landing";
 
 
 
