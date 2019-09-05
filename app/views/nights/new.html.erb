@@ -16,29 +16,36 @@
     <%= render 'shared/footer' %>
   </div>
 </div>
+<div id="something"></div>
 
+<script>
+  const landingDiv = document.querySelector("#something");
+  const submitBtn = document.querySelector("#address-form-submit");
+  const form = document.getElementById("search-form-addresses");
 
+  submitBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    <% gifs = [
+      'https://thumbs.gfycat.com/AmbitiousUglyBaldeagle-mobile.mp4',
+      'https://thumbs.gfycat.com/FrightenedGreenApe-mobile.mp4',
+      'https://thumbs.gfycat.com/WeeForsakenBelugawhale-mobile.mp4',
+      'https://thumbs.gfycat.com/UnselfishLeadingKitty-mobile.mp4',
+      'https://thumbs.gfycat.com/DeepHollowHound-mobile.mp4',
+      'https://thumbs.gfycat.com/BabyishUnfitArthropods-mobile.mp4'
+      ] %>
+    const img = document.createElement("video");
+    img.setAttribute("src", '<%= gifs.sample %>');
+    img.setAttribute("type", 'video/mp4');
+    img.setAttribute('autoplay', 'true');
+    img.setAttribute('loop', 'true');
+    // img.settAttribute('controls', 'true');
+    img.style = "width: 100vw; height: 100vh; object-fit: cover";
+    document.body.appendChild(img)
+    const code = `<%= render 'gif' %>`;
+    img.insertAdjacentHTML('afterend', code);
+    setTimeout(() => {
+      form.submit();
+    }, 1000)
+  });
 
-
-
-<div id="gif-container" style="width: 100vw; position: relative; display: none">
-  <% gifs = ["waffle.gif", "cat.gif", "drink-man.gif", "wow.gif", "donut.gif", "pancakes.gif", "magic.gif", "cookie.gif", "hot-dog.gif"] %>
-  <% gif = "gifs/"+gifs.sample %>
-  <img src="<%= image_path(gif)%>" alt="drink" style="width: 100vw; height: 100vh; object-fit: cover;">
-<!--   <div class="gif-text">
-    <p>3 bars</p>
-    <p>
-      <span class="word wiseria">in the middle</span>
-      <span class="word belize">for your night out</span>
-      <span class="word green">with your friends</span>
-    </p>
-  </div> -->
-
-
-    <div class="dad-goo" contenteditable="true" style="font-size: 20px;">
-      <span class="goo">selecting 3 bars</span>
-      <br> <br>
-      <span class="goo">quick and convenient</span>
-      <br><br>
-      <span class="goo">for you and your friends</span></div>
-</div>
+</script>
