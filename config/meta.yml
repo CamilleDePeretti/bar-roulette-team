@@ -2,4 +2,4 @@ meta_product_name: "Bar Roulette"
 meta_title: "Bar Roulette - Find a bar quick and fair for your night out with friends!"
 meta_description: "Bar Roulette helps you and your friends to find a great bar in a quick and fun way, HALFWAY of where ever you are.
 Just grab your phone and enter your locations."
-meta_image: "https://res.cloudinary.com/du4r5hykw/image/upload/v1567094035/beer_gif.gif" # should exist in `app/assets/images/`
+meta_image: "beer-pin.png" # should exist in `app/assets/images/`
