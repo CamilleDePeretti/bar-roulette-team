@@ -16,9 +16,6 @@
     <link href="http://www.bar-roulette.com/beer-pin.png" rel="icon" sizes="128x128" />
   </head>
   <body>
-    <% unless action_name == "new" %>
-       <%= render 'shared/navbar' %>
-    <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
 
