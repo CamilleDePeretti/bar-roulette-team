@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= render 'shared/google-analytics' %>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
@@ -14,9 +15,8 @@
       <meta property="og:image" content="<%= meta_image %>" />
       <meta property="og:description" content="<%= meta_description %>" />
       <meta property="og:site_name" content="<%= meta_title %>" />
+      <title>Bar Roulette</title>
   </head>
-
-    <title>Bar Roulette</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= favicon_link_tag 'icons/favicon-32x32.png' %>
